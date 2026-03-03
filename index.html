@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diocta</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">Diocta</div>
+            <ul class="nav-menu">
+                <li><a href="index.html#home" class="nav-link active">Beranda</a></li>
+                <li><a href="projects.html" class="nav-link">Project</a></li>
+                <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+                <li><a href="achievements.html" class="nav-link">Prestasi</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="section home-section">
+        <div class="container">
+            <div class="home-content">
+                <div class="home-text">
+                    <span class="greeting">Halo, saya</span>
+                    <h1 class="name">Diocta Brian Cesario</h1>
+                    <p class="role">IoT Developer</p>
+                    <p class="description">
+                        Saya Diocta Brian Cesario, saya adalah angkatan ke 6 SMK Telkom Sidoarjo dengan jurusan Sistem Informasi Jaringan Aplikasi (SIJA). Saya memiliki potensi pada bidang teknologi khususnya Internet of Thing. Selain itu, saya juga berminat dan tertarik pada bidang robotik. Saya menekuni hobi membuat sebuah prototype atau miniatur dan juga suka untuk membuat project yang berhubungan dengan IoT. Saya berkomitmen untuk terus mengembangkan keterampilan dan selalu mengikuti perkembangan teknologi.
+
+                    </p>
+                    <div class="home-buttons">
+                        <a href="projects.html" class="btn btn-primary">Lihat Project</a>
+                        <a href="https://wa.me/6285895625857" class="btn btn-secondary">Hubungi Saya</a>
+                    </div>
+                </div>
+                <div class="home-image">
+                    <div class="image-placeholder">
+                        <img src="assets/profil.png" alt="Foto Profil">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Preview Section -->
+    <section id="projects" class="section projects-section">
+        <div class="container">
+            <h2 class="section-title">Project Terbaru</h2>
+            <p class="section-subtitle">Beberapa project yang telah saya kerjakan</p>
+            
+            <div class="projects-grid" id="projects-preview">
+                <!-- Projects akan di-load dari data.js -->
+            </div>
+            
+            <div class="section-cta">
+                <a href="projects.html" class="btn btn-primary">Lihat Semua Project</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section skills-section">
+        <div class="container">
+            <h2 class="section-title">Skills & Kemampuan</h2>
+            <p class="section-subtitle">Teknologi dan tools yang saya kuasai</p>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3 class="category-title">Programming Languages</h3>
+                    <div class="skill-items">
+                        <div class="skill-badge">C/C++</div>
+                        <div class="skill-badge">Python (Basics)</div>
+                        <div class="skill-badge">MicroPython</div>
+                        <div class="skill-badge">JavaScript</div>
+                        <div class="skill-badge">React Native</div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="category-title">IoT & Embedded</h3>
+                    <div class="skill-items">
+                        <div class="skill-badge">Arduino</div>
+                        <div class="skill-badge">ESP32/ESP8266/Nano</div>
+                        <div class="skill-badge">Sensor Integration (DHT, Ultrasonic, LDR, DLL)</div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="category-title">Protocols & Tools</h3>
+                    <div class="skill-items">
+                        <div class="skill-badge">MQTT</div>
+                        <div class="skill-badge">Web Sockets</div>
+                        <div class="skill-badge">REST API</div>
+                        <div class="skill-badge">I2C/SPI</div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="category-title">Other Skills</h3>
+                    <div class="skill-items">
+                        <div class="skill-badge">Problem Solving</div>
+                        <div class="skill-badge">Time Management</div>
+                        <div class="skill-badge">Artificial Intelligence (Basics)</div>
+                        <div class="skill-badge">Git/GitHub</div>
+                        <div class="skill-badge">Prototyping</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Preview Section -->
+    <section id="achievements" class="section achievements-section">
+        <div class="container">
+            <h2 class="section-title">Penghargaan & Prestasi</h2>
+            <p class="section-subtitle">Pencapaian yang telah diraih</p>
+            
+            <div class="achievements-grid" id="achievements-preview">
+                <!-- Achievements akan di-load dari data.js -->
+            </div>
+            
+            <div class="section-cta">
+                <a href="achievements.html" class="btn btn-primary">Lihat Semua Prestasi</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Diocta. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/Diocta" class="social-link">GitHub</a>
+                <a href="https://www.linkedin.com/in/diocta-brian-cesario-3088692b0?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-link">LinkedIn</a>
+                <a href="#" class="social-link">dioctabrian@gmail.com</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
