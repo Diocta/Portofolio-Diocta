@@ -278,8 +278,108 @@ Robot dilengkapi dengan sensor ultrasonik yang berfungsi mendeteksi jarak dan ke
           demoUrl: "https://youtu.be/f8GUOWEnlgw?si=XgQg0DDCnmXQcPL0",
         },
       ];
+
+      // Fungsi untuk render detail project
+      function renderProjectDetail() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const projectId = parseInt(urlParams.get("id"));
+
+        const project = projectsData.find((p) => p.id === projectId);
+
+        if (!project) {
+          window.location.href = "projects.html";
+          return;
+        }
+
+        // Update title
+        document.title = `${project.title} - IoT Developer`;
+
+        // Update project title
+        const titleElement = document.getElementById("project-title");
+        if (titleElement) titleElement.textContent = project.title;
+
+        // Update tags
+        const tagsElement = document.getElementById("project-tags");
+        if (tagsElement) {
+          tagsElement.innerHTML = project.tags
+            .map((tag) => `<span class="tag">${tag}</span>`)
+            .join("");
+        }
+
+        // Update image
+        const imageContainer = document.querySelector(".project-image-large");
+        if (imageContainer && project.image) {
+          imageContainer.innerHTML = `<img src="${project.image}" alt="${project.title}" style="width:100%; height:100%; object-fit:cover;">`;
+        }
+
+        // Update description
+        const descElement = document.getElementById("project-description");
+        if (descElement) {
+          let html = `
+                  <h2>Deskripsi Project</h2>
+                  <p>${project.fullDesc}</p>
+              `;
+
+          if (project.features) {
+            html += `
+                      <h3>Fitur Utama:</h3>
+                      <ul>
+                          ${project.features.map((feature) => `<li>${feature}</li>`).join("")}
+                      </ul>
+                  `;
+          }
+
+          if (project.technologies) {
+            html += `<h3>Teknologi yang Digunakan:</h3><ul>`;
+            project.technologies.forEach((tech) => {
+              html += `<li><strong>${tech.category}:</strong> ${tech.items}</li>`;
+            });
+            html += `</ul>`;
+          }
+
+          if (project.challenges) {
+            html += `
+                      <h3>Tantangan & Solusi:</h3>
+                      <p>${project.challenges}</p>
+                  `;
+          }
+
+          if (project.role) {
+            html += `<h3>Peran Dalam Project:</h3><ul>`;
+            project.role.forEach((role) => {
+              html += `<li>${role}</li>`;
+            });
+            html += `</ul>`;
+          }
+
+          descElement.innerHTML = html;
+        }
+
+        // Update links
+        const linksContainer = document.querySelector(".project-detail-links");
+        if (linksContainer) {
+          linksContainer.innerHTML = `
+                  <a href="${project.githubUrl}" class="btn btn-primary">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                      </svg>
+                      View on GitHub
+                  </a>
+                  <a href="${project.demoUrl}" class="btn btn-secondary">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                          <polyline points="15 3 21 3 21 9"></polyline>
+                          <line x1="10" y1="14" x2="21" y2="3"></line>
+                      </svg>
+                      Demo
+                  </a>
+              `;
+        }
+      }
+
+      // Panggil render saat DOM siap
+      document.addEventListener("DOMContentLoaded", renderProjectDetail);
     </script>
-    <script src="app.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
