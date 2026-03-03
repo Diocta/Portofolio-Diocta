@@ -1,53 +1,156 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Semua Project - IoT Developer</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="container">
-            <div class="nav-brand">Diocta</div>
-            <ul class="nav-menu">
-                <li><a href="index.html#home" class="nav-link">Beranda</a></li>
-                <li><a href="projects.html" class="nav-link active">Project</a></li>
-                <li><a href="index.html#skills" class="nav-link">Skills</a></li>
-                <li><a href="achievements.html" class="nav-link">Prestasi</a></li>
-            </ul>
-        </div>
+      <div class="container">
+        <div class="nav-brand">Diocta</div>
+        <ul class="nav-menu">
+          <li><a href="index.html#home" class="nav-link">Beranda</a></li>
+          <li><a href="projects.html" class="nav-link active">Project</a></li>
+          <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+          <li><a href="achievements.html" class="nav-link">Prestasi</a></li>
+        </ul>
+      </div>
     </nav>
 
     <!-- Projects Page -->
     <section class="page-section">
-        <div class="container">
-            <div class="page-header">
-                <h1 class="page-title">Semua Project</h1>
-                <p class="page-subtitle">Portfolio lengkap project yang telah saya kerjakan</p>
-            </div>
-            
-            <div class="projects-grid" id="projects-all">
-                <!-- Projects akan di-load dari data.js -->
-            </div>
+      <div class="container">
+        <div class="page-header">
+          <h1 class="page-title">Semua Project</h1>
+          <p class="page-subtitle">
+            Portfolio lengkap project yang telah saya kerjakan
+          </p>
         </div>
+
+        <div class="projects-grid" id="projects-all">
+          <!-- Project 1 -->
+          <a href="project-detail.html?id=1" class="project-card">
+            <div class="project-image">
+              <img
+                src="assets/smarthome.jpeg"
+                alt="Proyek Smart Home Berbasis IoT dan AI (Desember 2025)"
+              />
+            </div>
+            <div class="project-content">
+              <h3>Proyek Smart Home Berbasis IoT dan AI (Desember 2025)</h3>
+              <p>
+                Sistem rumah pintas berbasis IoT dan AI yang memungkinkan
+                kontrol perangkat rumah melalui aplikasi mobile dan voice
+                command.
+              </p>
+              <div class="project-tags">
+                <span class="tag">ESP32</span>
+                <span class="tag">Smart Home</span>
+                <span class="tag">IoT</span>
+                <span class="tag">Mobile App</span>
+                <span class="tag">MQTT</span>
+                <span class="tag">AI</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Project 2 -->
+          <a href="project-detail.html?id=2" class="project-card">
+            <div class="project-image">
+              <img
+                src="assets/lettura.png"
+                alt="Lettura - Smart Hidrponic (October 2025)"
+              />
+            </div>
+            <div class="project-content">
+              <h3>Lettura - Smart Hidrponic (October 2025)</h3>
+              <p>
+                Membuat sebuah sistem hidroponik pintar yang memungkinkan para
+                petani hidroponik untuk menjaga tanaman mereka.
+              </p>
+              <div class="project-tags">
+                <span class="tag">ESP32</span>
+                <span class="tag">Smart Farm</span>
+                <span class="tag">IoT</span>
+                <span class="tag">Mobile App</span>
+                <span class="tag">MQTT</span>
+                <span class="tag">AI</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Project 3 -->
+          <a href="project-detail.html?id=3" class="project-card">
+            <div class="project-image">
+              <img
+                src="assets/autruckavto.jpg"
+                alt="Sistem Bandara Otomatis Autruck & Avto (Desember 2024)"
+              />
+            </div>
+            <div class="project-content">
+              <h3>Sistem Bandara Otomatis Autruck & Avto (Desember 2024)</h3>
+              <p>
+                Membuat sebuah prototype berupa pushback truck (Autruck) dan
+                garbarata otomatis (Avto) yang dapat membantu mempermudah sistem
+                operasi di bandara.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Arduino</span>
+                <span class="tag">Sensor</span>
+                <span class="tag">Automation</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Project 4 -->
+          <a href="project-detail.html?id=4" class="project-card">
+            <div class="project-image">
+              <img
+                src="assets/robot4wd.png"
+                alt="Robot 4WD with Bluetooth Control (Agustus 2024)"
+              />
+            </div>
+            <div class="project-content">
+              <h3>Robot 4WD with Bluetooth Control (Agustus 2024)</h3>
+              <p>
+                Membuat sebuah prototype robot dengan 4 motor dc sebagai
+                penggerak yang dapat mendeteksi objek sekitar dengan sensor
+                ultrasonik dan bisa dikendalikan menggunakan serial bluetooth
+                dari hp.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Arduino Uno</span>
+                <span class="tag">Robot</span>
+                <span class="tag">Automation</span>
+                <span class="tag">Bluetooth Control</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 Diocta. All rights reserved.</p>
-             <div class="social-links">
-                <a href="https://github.com/Diocta" class="social-link">GitHub</a>
-                <a href="https://www.linkedin.com/in/diocta-brian-cesario-3088692b0?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-link">LinkedIn</a>
-                <a href="#" class="social-link">dioctabrian@gmail.com</a>
-            </div>
+      <div class="container">
+        <p>&copy; 2024 Diocta. All rights reserved.</p>
+        <div class="social-links">
+          <a href="https://github.com/Diocta" class="social-link">GitHub</a>
+          <a
+            href="https://www.linkedin.com/in/diocta-brian-cesario-3088692b0?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            class="social-link"
+            >LinkedIn</a
+          >
+          <a href="#" class="social-link">dioctabrian@gmail.com</a>
         </div>
+      </div>
     </footer>
 
     <script src="data.js"></script>
     <script src="app.js"></script>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

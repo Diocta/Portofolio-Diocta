@@ -1,5 +1,7 @@
 // ============================================
-// FUNGSI UNTUK RENDER DATA DI SEMUA HALAMAN
+// FUNGSI UNTUK RENDER DATA DI HALAMAN DETAIL
+// Halaman projects.html dan achievements.html
+// sudah menggunakan HTML hardcoded
 // ============================================
 
 // Fungsi untuk mendapatkan SVG icon berdasarkan nama
@@ -22,79 +24,6 @@ function getAchievementIcon(iconName) {
       '<circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>',
   };
   return icons[iconName] || icons.medal;
-}
-
-// Fungsi untuk render project cards
-function renderProjectCards(projects, containerId, limit = null) {
-  const container = document.getElementById(containerId);
-  if (!container) return;
-
-  const projectsToShow = limit ? projects.slice(0, limit) : projects;
-
-  container.innerHTML = projectsToShow
-    .map(
-      (project) => `
-        <a href="project-detail.html?id=${project.id}" class="project-card">
-            <div class="project-image">
-                ${
-                  project.image
-                    ? `<img src="${project.image}" alt="${project.title}">`
-                    : `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                    </svg>`
-                }
-            </div>
-            <div class="project-content">
-                <h3>${project.title}</h3>
-                <p>${project.shortDesc}</p>
-                <div class="project-tags">
-                    ${project.tags.map((tag) => `<span class="tag">${tag}</span>`).join("")}
-                </div>
-            </div>
-        </a>
-    `,
-    )
-    .join("");
-}
-
-// Fungsi untuk render achievement cards
-function renderAchievementCards(
-  achievements,
-  containerId,
-  limit = null,
-  useShortDesc = false,
-) {
-  const container = document.getElementById(containerId);
-  if (!container) return;
-
-  const achievementsToShow = limit
-    ? achievements.slice(0, limit)
-    : achievements;
-
-  container.innerHTML = achievementsToShow
-    .map(
-      (achievement) => `
-        <div class="achievement-card">
-            <div class="achievement-image">
-                ${
-                  achievement.image
-                    ? `<img src="${achievement.image}" alt="${achievement.title}">`
-                    : `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        ${getAchievementIcon(achievement.icon || "medal")}
-                    </svg>`
-                }
-            </div>
-            <div class="achievement-content">
-                <h3>${achievement.title}</h3>
-                <p class="achievement-organizer">${achievement.organizer}</p>
-                <p class="achievement-year">${achievement.year}</p>
-                <p class="achievement-desc">${useShortDesc ? achievement.shortDesc : achievement.fullDesc}</p>
-            </div>
-        </div>
-    `,
-    )
-    .join("");
 }
 
 // Fungsi untuk render detail project
@@ -197,74 +126,13 @@ function renderProjectDetail() {
 
 // Initialize saat halaman dimuat
 document.addEventListener("DOMContentLoaded", function () {
-  // DEBUG: Cek apakah data sudah ter-load
-  console.log("=== DEBUG APP.JS ===");
-  console.log("projectsData loaded:", typeof projectsData !== "undefined");
-  console.log(
-    "achievementsData loaded:",
-    typeof achievementsData !== "undefined",
-  );
-  
-  // ERROR HANDLING: Jika data tidak ter-load
-  if (typeof projectsData === "undefined" || typeof achievementsData === "undefined") {
-    console.error("❌ ERROR: Data tidak ter-load! Cek browser console untuk error details.");
-    console.error("Pastikan file data.js ter-load dengan benar di hosting.");
-    
-    // Tampilkan error message ke user
-    const containers = document.querySelectorAll('[id$="-all"], [id$="-preview"]');
-    containers.forEach(container => {
-      container.innerHTML = `
-        <div style="padding: 20px; text-align: center; color: #ff6b6b;">
-          <h3>⚠️ Gagal Memuat Data</h3>
-          <p>Maaf, data tidak dapat dimuat. Silakan cek file konfigurasi hosting Anda.</p>
-          <p style="font-size: 0.9em; color: #999;">
-            Error: data.js tidak ter-load dengan benar
-          </p>
-        </div>
-      `;
-    });
-    return;
-  }
-  
-  if (typeof projectsData !== "undefined") {
-    console.log("projects count:", projectsData.length);
-  }
-  if (typeof achievementsData !== "undefined") {
-    console.log("achievements count:", achievementsData.length);
-  }
+  console.log("✓ app.js initialized");
 
-  // Render berdasarkan keberadaan container element (lebih reliable)
-
-  // Halaman index.html - render preview
-  if (document.getElementById("projects-preview")) {
-    console.log("Rendering projects preview...");
-    renderProjectCards(projectsData, "projects-preview", 3);
-  }
-
-  if (document.getElementById("achievements-preview")) {
-    console.log("Rendering achievements preview...");
-    renderAchievementCards(achievementsData, "achievements-preview", 4, true);
-  }
-
-  // Halaman projects.html - render semua project
-  if (document.getElementById("projects-all")) {
-    console.log("Rendering all projects...");
-    renderProjectCards(projectsData, "projects-all");
-  }
-
-  // Halaman achievements.html - render semua achievement
-  if (document.getElementById("achievements-all")) {
-    console.log("Rendering all achievements...");
-    renderAchievementCards(achievementsData, "achievements-all");
-  }
-
-  // Halaman project-detail.html
+  // Hanya render project detail jika di halaman project-detail.html
   if (
     document.getElementById("project-title") ||
     window.location.search.includes("id=")
   ) {
-    console.log("Rendering project detail...");
     renderProjectDetail();
   }
-  console.log("=== END DEBUG ===");
 });
