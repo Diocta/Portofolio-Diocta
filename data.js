@@ -194,8 +194,7 @@ const achievementsData = [
     title: "Juara 3 IoT Fitcom 3.0",
     organizer: "Universitas Dinammika Surabaya",
     year: "2025",
-    shortDesc:
-      "Membuat sebuah sistem pertanian pintar dalam lomba IoT Fitcom",
+    shortDesc: "Membuat sebuah sistem pertanian pintar dalam lomba IoT Fitcom",
     fullDesc:
       "Meraih juara 3 dalam kategori lomba IoT bertema Smart Farm, membuat sebuah sistem hidroponik pintar berbasis IoT dan AI yang dimana dapat memonitoring ph, nutrisi, mengontrol pompa manual dan otomatis, serta deteksi penyakit pada tanaman melalui esp32 cam.",
     image: "assets/lettura.jpeg",
@@ -227,8 +226,7 @@ const achievementsData = [
     title: "Sertifikat Webinar Internet of Things",
     organizer: "KMTek",
     year: "2025",
-    shortDesc:
-      "Penghargaan untuk menyelesaikan webinar Internet of Things.",
+    shortDesc: "Penghargaan untuk menyelesaikan webinar Internet of Things.",
     fullDesc:
       "Sertifikat yang diberikan oleh KMTek karena telah menyelesaikan webinar di bidang Internet of Things bertema Smart Electricity with Mappi32.",
     image: "assets/kmtek.png",
@@ -250,9 +248,9 @@ const achievementsData = [
     organizer: "SMK Telkom Sidoarjo",
     year: "2024",
     shortDesc:
-      'Penghargaan sebagai project DTP (Digital Talent Program) IoT terbaik 2024.',
+      "Penghargaan sebagai project DTP (Digital Talent Program) IoT terbaik 2024.",
     fullDesc:
-      'Penghargaan sebagai project DTP (Digital Talent Program) IoT terbaik 2024. Mmebuat sebuah proyek Autruck dan Avto, yaitu pushback tuck otomatis dan garbarata otomatis untuk membantu sistem operasi di bandara yang dapat menderek pesawat, menghubungkan akses penumpang, serta mengurangi ketergantungan pada operator manual.',
+      "Penghargaan sebagai project DTP (Digital Talent Program) IoT terbaik 2024. Mmebuat sebuah proyek Autruck dan Avto, yaitu pushback tuck otomatis dan garbarata otomatis untuk membantu sistem operasi di bandara yang dapat menderek pesawat, menghubungkan akses penumpang, serta mengurangi ketergantungan pada operator manual.",
     image: "assets/terbaikdtpiot.png",
   },
   {
@@ -261,9 +259,9 @@ const achievementsData = [
     organizer: "dibimbing.id",
     year: "2024",
     shortDesc:
-      'Penghargaan untuk menyelesaikan pelatihan Frontend Web Development.',
+      "Penghargaan untuk menyelesaikan pelatihan Frontend Web Development.",
     fullDesc:
-      'Sertifikat yang diberikan oleh dibimbing.id karena telah menyelesaikan pelatihan di bidang Frontend Web Development.',
+      "Sertifikat yang diberikan oleh dibimbing.id karena telah menyelesaikan pelatihan di bidang Frontend Web Development.",
     image: "assets/frontdev.png",
   },
   {
@@ -271,7 +269,8 @@ const achievementsData = [
     title: "Sertifikat CSS Introduction Class",
     organizer: "MySkill",
     year: "2024",
-    shortDesc: "Sertifikat yang diberikan oleh MySkill karena telah menyelesaikan kelas pengenalan CSS.",
+    shortDesc:
+      "Sertifikat yang diberikan oleh MySkill karena telah menyelesaikan kelas pengenalan CSS.",
     fullDesc:
       "Sertifikat yang diberikan oleh MySkill karena telah menyelesaikan kelas pengenalan CSS yang mencakup dasar-dasar styling, layout, dan responsive design untuk pengembangan web.",
     image: "assets/myskill.png",

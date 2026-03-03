@@ -200,7 +200,32 @@ document.addEventListener("DOMContentLoaded", function () {
   // DEBUG: Cek apakah data sudah ter-load
   console.log("=== DEBUG APP.JS ===");
   console.log("projectsData loaded:", typeof projectsData !== "undefined");
-  console.log("achievementsData loaded:", typeof achievementsData !== "undefined");
+  console.log(
+    "achievementsData loaded:",
+    typeof achievementsData !== "undefined",
+  );
+  
+  // ERROR HANDLING: Jika data tidak ter-load
+  if (typeof projectsData === "undefined" || typeof achievementsData === "undefined") {
+    console.error("❌ ERROR: Data tidak ter-load! Cek browser console untuk error details.");
+    console.error("Pastikan file data.js ter-load dengan benar di hosting.");
+    
+    // Tampilkan error message ke user
+    const containers = document.querySelectorAll('[id$="-all"], [id$="-preview"]');
+    containers.forEach(container => {
+      container.innerHTML = `
+        <div style="padding: 20px; text-align: center; color: #ff6b6b;">
+          <h3>⚠️ Gagal Memuat Data</h3>
+          <p>Maaf, data tidak dapat dimuat. Silakan cek file konfigurasi hosting Anda.</p>
+          <p style="font-size: 0.9em; color: #999;">
+            Error: data.js tidak ter-load dengan benar
+          </p>
+        </div>
+      `;
+    });
+    return;
+  }
+  
   if (typeof projectsData !== "undefined") {
     console.log("projects count:", projectsData.length);
   }
