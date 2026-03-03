@@ -3,6 +3,8 @@
 // Edit file ini untuk mengubah semua halaman
 // ============================================
 
+console.log("✓ data.js loaded successfully");
+
 // DATA PROJECTS
 const projectsData = [
   {

@@ -197,24 +197,39 @@ function renderProjectDetail() {
 
 // Initialize saat halaman dimuat
 document.addEventListener("DOMContentLoaded", function () {
+  // DEBUG: Cek apakah data sudah ter-load
+  console.log("=== DEBUG APP.JS ===");
+  console.log("projectsData loaded:", typeof projectsData !== "undefined");
+  console.log("achievementsData loaded:", typeof achievementsData !== "undefined");
+  if (typeof projectsData !== "undefined") {
+    console.log("projects count:", projectsData.length);
+  }
+  if (typeof achievementsData !== "undefined") {
+    console.log("achievements count:", achievementsData.length);
+  }
+
   // Render berdasarkan keberadaan container element (lebih reliable)
 
   // Halaman index.html - render preview
   if (document.getElementById("projects-preview")) {
+    console.log("Rendering projects preview...");
     renderProjectCards(projectsData, "projects-preview", 3);
   }
 
   if (document.getElementById("achievements-preview")) {
+    console.log("Rendering achievements preview...");
     renderAchievementCards(achievementsData, "achievements-preview", 4, true);
   }
 
   // Halaman projects.html - render semua project
   if (document.getElementById("projects-all")) {
+    console.log("Rendering all projects...");
     renderProjectCards(projectsData, "projects-all");
   }
 
   // Halaman achievements.html - render semua achievement
   if (document.getElementById("achievements-all")) {
+    console.log("Rendering all achievements...");
     renderAchievementCards(achievementsData, "achievements-all");
   }
 
@@ -223,6 +238,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("project-title") ||
     window.location.search.includes("id=")
   ) {
+    console.log("Rendering project detail...");
     renderProjectDetail();
   }
+  console.log("=== END DEBUG ===");
 });
