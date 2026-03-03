@@ -197,26 +197,32 @@ function renderProjectDetail() {
 
 // Initialize saat halaman dimuat
 document.addEventListener("DOMContentLoaded", function () {
-  const currentPage = window.location.pathname;
+  // Render berdasarkan keberadaan container element (lebih reliable)
 
-  // Halaman index.html
-  if (currentPage.includes("index.html") || currentPage.endsWith("/")) {
+  // Halaman index.html - render preview
+  if (document.getElementById("projects-preview")) {
     renderProjectCards(projectsData, "projects-preview", 3);
+  }
+
+  if (document.getElementById("achievements-preview")) {
     renderAchievementCards(achievementsData, "achievements-preview", 4, true);
   }
 
-  // Halaman projects.html
-  if (currentPage.includes("projects.html")) {
+  // Halaman projects.html - render semua project
+  if (document.getElementById("projects-all")) {
     renderProjectCards(projectsData, "projects-all");
   }
 
-  // Halaman achievements.html
-  if (currentPage.includes("achievements.html")) {
+  // Halaman achievements.html - render semua achievement
+  if (document.getElementById("achievements-all")) {
     renderAchievementCards(achievementsData, "achievements-all");
   }
 
   // Halaman project-detail.html
-  if (currentPage.includes("project-detail.html")) {
+  if (
+    document.getElementById("project-title") ||
+    window.location.search.includes("id=")
+  ) {
     renderProjectDetail();
   }
 });
