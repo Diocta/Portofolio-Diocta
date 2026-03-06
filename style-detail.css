@@ -1,0 +1,218 @@
+/* Project Detail Page */
+.detail-header {
+  margin-bottom: 30px;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: var(--primary-color);
+}
+
+.project-detail {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.project-detail-header {
+  margin-bottom: 30px;
+}
+
+.project-detail-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.project-detail-image {
+  margin-bottom: 40px;
+}
+
+.project-image-large {
+  width: 100%;
+  height: 400px;
+  background: linear-gradient(135deg, var(--bg-card), var(--bg-darker));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-color);
+}
+
+.project-image-large svg {
+  width: 120px;
+  height: 120px;
+  color: var(--primary-color);
+}
+
+.project-detail-content {
+  margin-bottom: 40px;
+}
+
+.project-detail-content h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+.project-detail-content h3 {
+  font-size: 1.5rem;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: var(--primary-color);
+}
+
+.project-detail-content p {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.project-detail-content ul {
+  list-style-position: inside;
+  color: var(--text-secondary);
+  line-height: 2;
+  margin-bottom: 20px;
+}
+
+.project-detail-content ul li {
+  margin-bottom: 8px;
+}
+
+.project-detail-content strong {
+  color: var(--text-primary);
+}
+
+.project-detail-links {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* Responsive Design */
+
+/* Tablet - 768px dan ke bawah */
+@media (max-width: 768px) {
+  /* Detail Page */
+  .detail-header {
+    margin-bottom: 20px;
+  }
+
+  .back-link {
+    font-size: 0.95rem;
+    padding: 8px 12px;
+  }
+
+  .project-detail-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .project-tags {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tag {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+
+  .project-image-large {
+    height: 250px;
+  }
+
+  .project-detail-content h2 {
+    font-size: 1.3rem;
+  }
+
+  .project-detail-content h3 {
+    font-size: 1.1rem;
+  }
+
+  .project-detail-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .project-detail-links .btn {
+    width: 100%;
+  }
+}
+
+/* Mobile - 480px dan ke bawah */
+@media (max-width: 480px) {
+  /* Detail Page */
+  .detail-header {
+    margin-bottom: 15px;
+  }
+
+  .back-link {
+    font-size: 0.85rem;
+    padding: 6px 10px;
+  }
+
+  .back-link svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .project-detail-header h1 {
+    font-size: 1.4rem;
+  }
+
+  .project-image-large {
+    height: 200px;
+  }
+
+  .project-detail-content {
+    padding: 15px 0;
+  }
+
+  .project-detail-content h2 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+
+  .project-detail-content h3 {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+
+  .project-detail-content p,
+  .project-detail-content ul {
+    font-size: 0.85rem;
+  }
+
+  .project-detail-content li {
+    margin-bottom: 8px;
+  }
+
+  .project-detail-links {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .project-detail-links .btn {
+    width: 100%;
+    gap: 8px;
+  }
+
+  .project-detail-links .btn svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Mobile Kecil - 320px dan ke bawah */
+@media (max-width: 320px) {
+  .project-detail-header h1 {
+    font-size: 1.2rem;
+  }
+}

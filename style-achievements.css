@@ -1,0 +1,130 @@
+/* Achievements Section */
+.achievements-section {
+  background-color: var(--bg-darker);
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.achievement-card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.achievement-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary-color);
+  box-shadow: 0 10px 40px rgba(10, 124, 255, 0.2);
+}
+
+.achievement-image {
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.achievement-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.achievement-image svg {
+  width: 100%;
+  height: 100%;
+  color: var(--primary-color);
+}
+
+.achievement-content {
+  padding: 25px;
+}
+
+.achievement-content h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.achievement-organizer {
+  color: var(--primary-color);
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.achievement-year {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+.achievement-desc {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Responsive Design */
+
+/* Tablet - 768px dan ke bawah */
+@media (max-width: 768px) {
+  /* Cards */
+  .achievement-card {
+    padding: 15px;
+  }
+
+  .achievement-image {
+    height: 180px;
+  }
+
+  .achievement-content {
+    padding: 15px;
+  }
+
+  .achievement-content h3 {
+    font-size: 1.1rem;
+  }
+
+  .achievement-desc {
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile - 480px dan ke bawah */
+@media (max-width: 480px) {
+  /* Grids */
+  .achievements-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  /* Cards */
+  .achievement-card {
+    padding: 12px;
+  }
+
+  .achievement-image {
+    height: 150px;
+  }
+
+  .achievement-content {
+    padding: 12px;
+  }
+
+  .achievement-content h3 {
+    font-size: 1rem;
+    margin-bottom: 6px;
+  }
+
+  .achievement-organizer,
+  .achievement-year,
+  .achievement-desc {
+    font-size: 0.85rem;
+  }
+}
