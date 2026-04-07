@@ -212,6 +212,40 @@
         },
         {
           id: 3,
+          title: "Rivenovoa - River Cleaning Boat Controller (Januari 2024)",
+          shortDesc:
+            "Membuat sebuah prototype berupa kapal pembersih sungai yang dapat membantu mempermudah untuk membersihkan sungai.",
+          image: "assets/rivenova.jpeg",
+          tags: ["ESP32", "Sensor", "Automation", "Wifi Control", "Robot"],
+          fullDesc: `Sistem kontrol untuk kapal pembersih sungai berbasis IoT yang dirancang untuk mendukung upaya pengelolaan kebersihan sungai secara otomatis dan efisien. Sistem ini memungkinkan pengendalian arah, kecepatan, dan mekanisme pengangkut sampah dari jarak jauh menggunakan mikrokontroler ESP32 yang terhubung dengan berbagai sensor pendukung seperti sensor ultrasonik, GPS, dan kamera. Fokus desain ditekankan pada efisiensi operasional, kemudahan penggunaan oleh operator, serta keandalan sistem dalam berbagai kondisi sungai yang beragam. Proses pengembangan mencakup perancangan skema elektronik, pemrograman firmware, integrasi antarmuka monitoring berbasis web atau aplikasi mobile, serta pengujian lapangan secara bertahap untuk memastikan kinerja optimal di lingkungan nyata.
+`,
+          features: [
+            "Otomatisasi proses pembersihan sungai dengan kapal pembersih",
+            "Otomatisasi pengangkut sampah dengan sistem kontrol berbasis IoT",
+            "Kontrol melalui aplikasi mobile dengan komunikasi WiFi",
+            "Sensor GPS untuk navigasi dan pelacakan lokasi",
+          ],
+          technologies: [
+            {
+              category: "Hardware",
+              items:
+                "ESP32, Expansion Shield ESP32, Sensor GPS, Servo, motor DC, motor driver",
+            },
+            { category: "Software", items: "Arduino IDE" },
+            { category: "Software", items: "VS Code" }
+          ],
+          challenges:
+            "Tantangan adalah membuat sistem yang dapat bekerja sesuai dengan ekpektasi seperti autruck otomatis yang dapat menderek pesawat dan avto garbarata otomatis. Solusinya membuat desain dan prototipe yang sesuai dengan kebutuhan teknis dan mekanik.",
+          role: [
+            "Merancang desain Rivenovoa",
+            "Mengintegrasikan sensor GPS untuk navigasi kapal",
+            "Membuat prototipe Rivenovoa serta menguji fungsionalitasnya",
+          ],
+          githubUrl: "#",
+          demoUrl: "https://youtube.com/shorts/2iErMcgb2BI?si=3AHL44ZuEdcaCa0g",
+        },
+        {
+          id: 4,
           title: "Sistem Bandara Otomatis Autruck & Avto (Desember 2024)",
           shortDesc:
             "Membuat sebuah prototype berupa pushback truck (Autruck) dan garbarata otomatis (Avto) yang dapat membantu mempermudah sistem operasi di bandara.",
@@ -246,7 +280,7 @@ Solusi yang diusulkan berupa penggunaan Autruck sebagai alat taxiing otomatis da
           demoUrl: "#",
         },
         {
-          id: 4,
+          id: 5,
           title: "Robot 4WD with Bluetooth Control (Agustus 2024)",
           shortDesc:
             "Membuat sebuah prototype robot dengan 4 motor dc sebagai penggerak yang dapat mendeteksi objek sekitar dengan sensor ultrasonik dan bisa dikendalikan menggunakan serial bluetooth dari hp.",
