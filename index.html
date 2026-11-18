@@ -3,7 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Diocta</title>
+    <meta name="theme-color" content="#0b1115" />
+    <meta
+      name="description"
+      content="Portofolio Diocta Brian Cesario, dengan fokus pada IoT, embedded systems, dan robotika."
+    />
+    <title>Diocta Brian Cesario | IoT &amp; Robotics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style-common.css" />
     <link rel="stylesheet" href="style-home.css" />
     <link rel="stylesheet" href="style-projects.css" />
@@ -13,11 +24,23 @@
     <!-- Navigation -->
     <nav class="navbar">
       <div class="container">
-        <div class="nav-brand">Diocta</div>
-        <ul class="nav-menu">
+        <a class="nav-brand" href="index.html">Diocta<span>.</span></a>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-navigation"
+          aria-label="Buka navigasi"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-menu" id="primary-navigation">
           <li><a href="index.html#home" class="nav-link active">Beranda</a></li>
-          <li><a href="projects.html" class="nav-link">Project</a></li>
-          <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+          <li><a href="projects.html" class="nav-link">Proyek</a></li>
+          <li><a href="experience.html" class="nav-link">Pengalaman</a></li>
+          <li><a href="index.html#skills" class="nav-link">Keahlian</a></li>
           <li><a href="achievements.html" class="nav-link">Prestasi</a></li>
         </ul>
       </div>
@@ -26,259 +49,184 @@
     <!-- Home Section -->
     <section id="home" class="section home-section">
       <div class="container">
-        <div class="home-content">
-          <div class="home-text">
-            <span class="greeting">Halo, saya</span>
-            <h1 class="name">Diocta Brian Cesario</h1>
-            <p class="role">IoT Engineer</p>
-            <p class="description">
-              Saya Diocta Brian Cesario, saya adalah angkatan ke 6 SMK Telkom
-              Sidoarjo dengan jurusan Sistem Informasi Jaringan Aplikasi (SIJA).
-              Saya memiliki potensi pada bidang teknologi khususnya Internet of
-              Thing. Selain itu, saya juga berminat dan tertarik pada bidang
-              robotik. Saya menekuni hobi membuat sebuah prototype atau miniatur
-              dan juga suka untuk membuat project yang berhubungan dengan IoT.
-              Saya berkomitmen untuk terus mengembangkan keterampilan dan selalu
-              mengikuti perkembangan teknologi.
+        <div class="hero-layout">
+          <div class="hero-copy">
+            <p class="eyebrow hero-kicker">
+              <span class="status-pulse"></span> IoT / EMBEDDED / ROBOTICS
             </p>
-            <div class="home-buttons">
-              <a href="projects.html" class="btn btn-primary">Lihat Project</a>
+            <h1 class="hero-title">
+              Merakit ide.<br /><span>Menghidupkan</span><br />kemungkinan.
+            </h1>
+            <p class="hero-summary">
+              Halo, saya <strong>Diocta Brian Cesario</strong>. Saya membangun
+              prototipe IoT dan robotika untuk memahami bagaimana teknologi
+              bekerja di dunia nyata.
+            </p>
+            <div class="hero-actions">
+              <a href="projects.html" class="btn btn-primary">Lihat proyek</a>
               <a href="https://wa.me/6285895625857" class="btn btn-secondary"
-                >Hubungi Saya</a
+                >Hubungi saya <span aria-hidden="true">&#8599;</span></a
               >
             </div>
+            <a class="hero-scroll" href="#project-featured"
+              ><span>JELAJAHI KARYA</span
+              ><span aria-hidden="true">&#8595;</span></a
+            >
           </div>
-          <div class="home-image">
-            <div class="image-placeholder">
-              <img src="assets/profil.png" alt="Foto Profil" />
+
+          <div class="hero-stage">
+            <div class="hero-circuit" aria-hidden="true">
+              <span></span><span></span><span></span><span></span>
+            </div>
+            <div class="hero-carousel" id="hero-carousel">
+              <div
+                class="hero-carousel-frame"
+                id="hero-carousel-frame"
+                aria-label="Sorotan profil, proyek, dan prestasi"
+              >
+                <div class="hero-carousel-slide" id="hero-carousel-slide"></div>
+                <span
+                  class="hero-scanline"
+                  id="hero-scanline"
+                  aria-hidden="true"
+                ></span>
+                <button
+                  class="hero-carousel-arrow hero-carousel-previous"
+                  type="button"
+                  data-hero-step="-1"
+                  aria-label="Tampilkan sorotan sebelumnya"
+                >
+                  &#8592;
+                </button>
+                <button
+                  class="hero-carousel-arrow hero-carousel-next"
+                  type="button"
+                  data-hero-step="1"
+                  aria-label="Tampilkan sorotan berikutnya"
+                >
+                  &#8594;
+                </button>
+              </div>
+              <div class="hero-carousel-status">
+                <span class="hero-slide-label" id="hero-slide-label"
+                  >PROFIL</span
+                >
+                <div
+                  class="hero-slide-picker"
+                  id="hero-slide-picker"
+                  role="group"
+                  aria-label="Pilih kategori sorotan"
+                ></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Projects Preview Section -->
-    <section id="projects" class="section projects-section">
+    <section id="project-featured" class="section project-showcase">
       <div class="container">
-        <h2 class="section-title">Project Terbaru</h2>
-        <p class="section-subtitle">
-          Beberapa project yang telah saya kerjakan
+        <div class="showcase-heading">
+          <div>
+            <p class="eyebrow">PILIHAN PROYEK / 2024—2026</p>
+            <h2 class="section-title">Dari meja kerja<br />ke dunia nyata.</h2>
+          </div>
+          <p class="section-subtitle">
+            Setiap proyek dimulai dari rasa ingin tahu, lalu diuji melalui
+            rangkaian, kode, dan prototipe.
+          </p>
+        </div>
+        <div
+          class="project-spotlight"
+          id="project-spotlight"
+          aria-live="polite"
+        >
+          <figure class="spotlight-media" id="spotlight-media"></figure>
+          <div class="spotlight-detail">
+            <p class="eyebrow">PROJECT FILE</p>
+            <h3 id="spotlight-title"></h3>
+            <p class="spotlight-description" id="spotlight-description"></p>
+            <div class="project-tags" id="spotlight-tags"></div>
+            <a
+              href="project-detail.html?id=1"
+              class="spotlight-link"
+              id="spotlight-link"
+              >Buka detail proyek <span aria-hidden="true">&#8599;</span></a
+            >
+            <div class="spotlight-controls">
+              <div
+                class="spotlight-picker"
+                id="spotlight-picker"
+                role="group"
+                aria-label="Pilih proyek"
+              ></div>
+              <div class="spotlight-arrows">
+                <button
+                  class="icon-button"
+                  type="button"
+                  data-spotlight-step="-1"
+                  aria-label="Proyek sebelumnya"
+                >
+                  &#8592;
+                </button>
+                <button
+                  class="icon-button"
+                  type="button"
+                  data-spotlight-step="1"
+                  aria-label="Proyek berikutnya"
+                >
+                  &#8594;
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="projects.html" class="text-link"
+          >Jelajahi semua proyek <span aria-hidden="true">&#8599;</span></a
+        >
+      </div>
+    </section>
+
+    <section class="section experience-teaser">
+      <div class="container experience-teaser-inner">
+        <p class="eyebrow">LANGKAH BERIKUTNYA</p>
+        <h2 class="section-title">Belajar dengan<br />mengerjakan.</h2>
+        <p>
+          Catatan pengalaman, kontribusi, dan proses yang membentuk cara saya
+          bekerja.
         </p>
-
-        <div class="projects-grid" id="projects-preview">
-          <!-- Project 1 - NEW -->
-          <a href="project-detail.html?id=1" class="project-card">
-            <div class="project-image">
-              <img
-                src="assets/lenganrobot1.jpeg"
-                alt="Project Terbaru (Maret 2026)"
-              />
-            </div>
-            <div class="project-content">
-              <h3>Proyek Lengan Robot (Maret 2026)</h3>
-              <p>Membuat sebuah prototype lengan robot berbasis ESP32 yang dapat digerakka melalui joystick</p>
-              <div class="project-tags">
-                <span class="tag">ESP32</span>
-                <span class="tag">Robot</span>
-                <span class="tag">IoT</span>
-                <span class="tag">Controlling</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- Project 2 -->
-          <a href="project-detail.html?id=2" class="project-card">
-            <div class="project-image">
-              <img
-                src="assets/smarthome.jpeg"
-                alt="Proyek Smart Home Berbasis IoT dan AI (Desember 2025)"
-              />
-            </div>
-            <div class="project-content">
-              <h3>Proyek Smart Home Berbasis IoT dan AI (Desember 2025)</h3>
-              <p>
-                Sistem rumah pintas berbasis IoT dan AI yang memungkinkan
-                kontrol perangkat rumah melalui aplikasi mobile dan voice
-                command.
-              </p>
-              <div class="project-tags">
-                <span class="tag">ESP32</span>
-                <span class="tag">Smart Home</span>
-                <span class="tag">IoT</span>
-                <span class="tag">Mobile App</span>
-                <span class="tag">MQTT</span>
-                <span class="tag">AI</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- Project 3 -->
-          <a href="project-detail.html?id=3" class="project-card">
-            <div class="project-image">
-              <img
-                src="assets/lettura.png"
-                alt="Lettura - Smart Hidrponic (October 2025)"
-              />
-            </div>
-            <div class="project-content">
-              <h3>Lettura - Smart Hidrponic (October 2025)</h3>
-              <p>
-                Membuat sebuah sistem hidroponik pintar yang memungkinkan para
-                petani hidroponik untuk menjaga tanaman mereka.
-              </p>
-              <div class="project-tags">
-                <span class="tag">ESP32</span>
-                <span class="tag">Smart Farm</span>
-                <span class="tag">IoT</span>
-                <span class="tag">Mobile App</span>
-                <span class="tag">MQTT</span>
-                <span class="tag">AI</span>
-              </div>
-            </div>
-          </a>
-        </div>
-
-        <div class="section-cta">
-          <a href="projects.html" class="btn btn-primary"
-            >Lihat Semua Project</a
-          >
-        </div>
+        <a href="experience.html" class="text-link"
+          >Lihat pengalaman <span aria-hidden="true">&#8599;</span></a
+        >
+        <span class="teaser-index" aria-hidden="true">02</span>
       </div>
     </section>
 
     <!-- Skills Section -->
     <section id="skills" class="section skills-section">
       <div class="container">
-        <h2 class="section-title">Skills & Kemampuan</h2>
-        <p class="section-subtitle">Teknologi dan tools yang saya kuasai</p>
+        <p class="eyebrow">PERANGKAT KERJA</p>
+        <h2 class="section-title">Keahlian teknis</h2>
+        <p class="section-subtitle">Teknologi dan tools yang saya gunakan.</p>
 
-        <div class="skills-grid">
-          <div class="skill-category">
-            <h3 class="category-title">Programming Languages</h3>
-            <div class="skill-items">
-              <div class="skill-badge">C/C++</div>
-              <div class="skill-badge">Python (Basics)</div>
-              <div class="skill-badge">MicroPython</div>
-              <div class="skill-badge">JavaScript</div>
-              <div class="skill-badge">React Native</div>
-            </div>
-          </div>
-
-          <div class="skill-category">
-            <h3 class="category-title">IoT & Embedded</h3>
-            <div class="skill-items">
-              <div class="skill-badge">Arduino</div>
-              <div class="skill-badge">ESP32/ESP8266/Nano</div>
-              <div class="skill-badge">
-                Sensor Integration (DHT, Ultrasonic, LDR, DLL)
-              </div>
-            </div>
-          </div>
-
-          <div class="skill-category">
-            <h3 class="category-title">Protocols & Tools</h3>
-            <div class="skill-items">
-              <div class="skill-badge">MQTT</div>
-              <div class="skill-badge">Web Sockets</div>
-              <div class="skill-badge">REST API</div>
-              <div class="skill-badge">I2C/SPI</div>
-            </div>
-          </div>
-
-          <div class="skill-category">
-            <h3 class="category-title">Other Skills</h3>
-            <div class="skill-items">
-              <div class="skill-badge">Problem Solving</div>
-              <div class="skill-badge">Time Management</div>
-              <div class="skill-badge">Artificial Intelligence (Basics)</div>
-              <div class="skill-badge">Git/GitHub</div>
-              <div class="skill-badge">Prototyping</div>
-            </div>
-          </div>
-        </div>
+        <div class="skills-grid" id="skills-grid"></div>
       </div>
     </section>
 
     <!-- Achievements Preview Section -->
     <section id="achievements" class="section achievements-section">
       <div class="container">
-        <h2 class="section-title">Penghargaan & Prestasi</h2>
-        <p class="section-subtitle">Pencapaian yang telah diraih</p>
+        <p class="eyebrow">PENCAPAIAN</p>
+        <h2 class="section-title">Prestasi &amp; sertifikasi</h2>
+        <p class="section-subtitle">
+          Penghargaan dan pelatihan yang telah saya selesaikan.
+        </p>
 
-        <div class="achievements-grid" id="achievements-preview">
-          <!-- Achievement 1 -->
-          <div class="achievement-card">
-            <div class="achievement-image">
-              <img
-                src="assets/inkubasi.png"
-                alt="Best Project 1 - Kelas Inkubasi"
-              />
-            </div>
-            <div class="achievement-content">
-              <h3>Best Project 1 - Kelas Inkubasi</h3>
-              <p class="achievement-organizer">SMK Telkom Sidoarjo</p>
-              <p class="achievement-year">2025</p>
-              <p class="achievement-desc">
-                Project Inkubasi yang di lakukan kelas XII SIJA SMK Telkom
-                Sidoarjo.
-              </p>
-            </div>
-          </div>
-
-          <!-- Achievement 2 -->
-          <div class="achievement-card">
-            <div class="achievement-image">
-              <img src="assets/lettura.jpeg" alt="Juara 3 IoT Fitcom 3.0" />
-            </div>
-            <div class="achievement-content">
-              <h3>Juara 3 IoT Fitcom 3.0</h3>
-              <p class="achievement-organizer">
-                Universitas Dinammika Surabaya
-              </p>
-              <p class="achievement-year">2025</p>
-              <p class="achievement-desc">
-                Membuat sebuah sistem pertanian pintar dalam lomba IoT Fitcom
-              </p>
-            </div>
-          </div>
-
-          <!-- Achievement 3 -->
-          <div class="achievement-card">
-            <div class="achievement-image">
-              <img
-                src="assets/sertifikatbnsp1.png"
-                alt="Sertifikasi pelatihan Software Development"
-              />
-            </div>
-            <div class="achievement-content">
-              <h3>Sertifikasi pelatihan Software Development</h3>
-              <p class="achievement-organizer">BNSP RI dan Telkom DigiUp</p>
-              <p class="achievement-year">2025</p>
-              <p class="achievement-desc">
-                Penghargaan untuk menyelesaikan pelatihan software development.
-              </p>
-            </div>
-          </div>
-
-          <!-- Achievement 4 -->
-          <div class="achievement-card">
-            <div class="achievement-image">
-              <img
-                src="assets/azureai.png"
-                alt="Sertifikat pelatihan Azure AI Fundamentals"
-              />
-            </div>
-            <div class="achievement-content">
-              <h3>Sertifikat pelatihan Azure AI Fundamentals</h3>
-              <p class="achievement-organizer">Microsoft dan Komdigi</p>
-              <p class="achievement-year">2025</p>
-              <p class="achievement-desc">
-                Penghargaan untuk menyelesaikan pelatihan Azure AI Fundamentals.
-              </p>
-            </div>
-          </div>
-        </div>
-
+        <div
+          class="achievements-grid"
+          id="achievements-preview"
+          data-limit="4"
+        ></div>
         <div class="section-cta">
           <a href="achievements.html" class="btn btn-primary"
             >Lihat Semua Prestasi</a
@@ -290,20 +238,21 @@
     <!-- Footer -->
     <footer class="footer">
       <div class="container">
-        <p>&copy; 2024 Diocta. All rights reserved.</p>
+        <p>&copy; <span data-current-year>2026</span> Diocta</p>
         <div class="social-links">
           <a href="https://github.com/Diocta" class="social-link">GitHub</a>
           <a
-            href="https://www.linkedin.com/in/diocta-brian-cesario-3088692b0?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            href="https://www.linkedin.com/in/diocta-brian-cesario-3088692b0/"
             class="social-link"
             >LinkedIn</a
           >
-          <a href="#" class="social-link">dioctabrian@gmail.com</a>
+          <a href="mailto:dioctabrian@gmail.com" class="social-link">Email</a>
         </div>
       </div>
     </footer>
 
     <script src="data.js"></script>
+    <script src="supabase-config.js"></script>
     <script src="app.js"></script>
     <script src="script.js"></script>
   </body>

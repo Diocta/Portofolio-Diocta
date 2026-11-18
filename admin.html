@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b1115" />
+    <title>Pengelola Konten - Diocta</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style-common.css" />
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+  <body class="admin-body">
+    <header class="admin-topbar">
+      <a class="nav-brand" href="index.html"
+        >Diocta<span>.</span><small> / STUDIO</small></a
+      >
+      <a href="index.html" class="admin-public-link"
+        >Lihat website <span aria-hidden="true">&#8599;</span></a
+      >
+    </header>
+
+    <main class="admin-main">
+      <section class="admin-heading">
+        <p class="eyebrow">RUANG PENGELOLA</p>
+        <h1>Kelola konten</h1>
+        <p>
+          Data yang disimpan di sini akan digunakan oleh halaman portofolio.
+        </p>
+      </section>
+
+      <div class="admin-notice" id="config-notice" hidden>
+        <strong>Database belum dikonfigurasi.</strong>
+        <span
+          >Isi URL project dan publishable/anon key di
+          <code>supabase-config.js</code>, lalu jalankan skema dari folder
+          <code>supabase/</code>.</span
+        >
+      </div>
+
+      <section class="admin-auth" id="login-panel" hidden>
+        <p class="eyebrow">LOGIN PRIVAT</p>
+        <h2>Masuk ke pengelola</h2>
+        <p>
+          Masuk menggunakan email dan password admin. Akun tetap harus terdaftar
+          sebagai pengelola di database.
+        </p>
+        <form id="login-form">
+          <label for="admin-email">Email</label>
+          <input
+            id="admin-email"
+            name="email"
+            type="email"
+            autocomplete="email"
+            required
+          />
+          <label for="admin-password">Password</label>
+          <input
+            id="admin-password"
+            name="password"
+            type="password"
+            autocomplete="current-password"
+            required
+          />
+          <button class="btn btn-primary" type="submit">Masuk</button>
+        </form>
+        <button
+          class="quiet-button password-reset-link"
+          id="request-password-reset"
+          type="button"
+        >
+          Atur atau lupa password
+        </button>
+        <p
+          class="admin-message"
+          id="login-message"
+          role="status"
+          aria-live="polite"
+        ></p>
+      </section>
+
+      <section class="admin-auth" id="password-recovery-panel" hidden>
+        <p class="eyebrow">PENGATURAN AKUN</p>
+        <h2>Buat password baru</h2>
+        <p>Gunakan password unik minimal 12 karakter.</p>
+        <form id="password-recovery-form">
+          <label for="new-admin-password">Password baru</label>
+          <input
+            id="new-admin-password"
+            name="password"
+            type="password"
+            autocomplete="new-password"
+            minlength="12"
+            required
+          />
+          <label for="confirm-admin-password">Ulangi password</label>
+          <input
+            id="confirm-admin-password"
+            name="confirmPassword"
+            type="password"
+            autocomplete="new-password"
+            minlength="12"
+            required
+          />
+          <button class="btn btn-primary" type="submit">Simpan password</button>
+        </form>
+        <p
+          class="admin-message"
+          id="password-recovery-message"
+          role="status"
+          aria-live="polite"
+        ></p>
+      </section>
+
+      <section class="admin-access-denied" id="access-denied" hidden>
+        <h2>Akses belum diberikan</h2>
+        <p>
+          Akun ini berhasil masuk, tetapi belum terdaftar sebagai pengelola
+          portofolio.
+        </p>
+        <button class="btn btn-secondary" id="denied-signout" type="button">
+          Keluar
+        </button>
+      </section>
+
+      <section class="admin-workspace" id="admin-workspace" hidden>
+        <div class="admin-session-bar">
+          <p>Masuk sebagai <strong id="admin-user-email"></strong></p>
+          <button class="quiet-button" id="signout-button" type="button">
+            Keluar
+          </button>
+        </div>
+
+        <div class="admin-toolbar">
+          <label class="visually-hidden" for="content-kind">Jenis konten</label>
+          <select id="content-kind">
+            <option value="projects">Proyek</option>
+            <option value="experiences">Pengalaman</option>
+            <option value="skills">Keahlian</option>
+            <option value="achievements">Prestasi</option>
+          </select>
+          <button class="btn btn-primary" id="add-content" type="button">
+            Tambah data
+          </button>
+          <button class="btn btn-secondary" id="import-content" type="button">
+            Impor data awal
+          </button>
+        </div>
+
+        <p
+          class="admin-message"
+          id="workspace-message"
+          role="status"
+          aria-live="polite"
+        ></p>
+
+        <div class="admin-layout">
+          <section class="admin-list-panel" aria-labelledby="list-title">
+            <div class="admin-panel-heading">
+              <p class="eyebrow">DAFTAR</p>
+              <h2 id="list-title">Konten</h2>
+            </div>
+            <div class="admin-content-list" id="content-list"></div>
+          </section>
+
+          <section class="admin-editor-panel" aria-labelledby="editor-title">
+            <div class="admin-panel-heading">
+              <p class="eyebrow">FORMULIR</p>
+              <h2 id="editor-title">Pilih atau tambah data</h2>
+            </div>
+            <form id="content-form" hidden>
+              <div id="content-fields"></div>
+              <label class="publish-toggle">
+                <input id="content-published" type="checkbox" checked />
+                <span>Tampilkan di website publik</span>
+              </label>
+              <div class="editor-actions">
+                <button class="btn btn-primary" type="submit">
+                  Simpan perubahan
+                </button>
+                <button
+                  class="btn btn-secondary"
+                  id="cancel-edit"
+                  type="button"
+                >
+                  Batal
+                </button>
+              </div>
+            </form>
+            <p class="admin-empty-hint" id="editor-hint">
+              Pilih data di daftar untuk diedit, atau tambah data baru.
+            </p>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <script src="supabase-config.js"></script>
+    <script src="data.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="admin.js"></script>
+  </body>
+</html>

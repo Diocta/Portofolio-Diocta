@@ -5,8 +5,271 @@
 
 console.log("✓ data.js loaded successfully");
 
+let projectsData = [
+  {
+    id: 1,
+    title: "Proyek Lengan Robot (Maret 2026)",
+    shortDesc:
+      "Prototipe lengan robot berbasis ESP32 yang dirakit dari kardus dan dikendalikan secara real-time menggunakan joystick.",
+    image: "assets/lenganrobot1.jpeg",
+    tags: ["ESP32", "Robot", "IoT", "Controlling"],
+    fullDesc:
+      "Membuat prototipe lengan robot berbasis ESP32 dengan rangka kardus yang dirancang dan dirakit sendiri. Gerakan lengan dikendalikan secara real-time menggunakan joystick.",
+    features: [
+      "Kontrol gerakan lengan robot secara real-time menggunakan joystick",
+      "Gerakan multi-arah pada beberapa sendi lengan menggunakan servo",
+      "Prototype fisik berbentuk lengan robot dari bahan kardus",
+    ],
+    technologies: [
+      {
+        category: "Hardware",
+        items: "ESP32, Expansion Shield ESP32, Joystick Module, Servo Motor",
+      },
+      { category: "Software", items: "Arduino IDE" },
+      { category: "Communication", items: "Sinyal PWM untuk kontrol servo" },
+    ],
+    challenges:
+      "Salah satu tantangan dalam proyek ini adalah merancang struktur lengan yang cukup kuat namun ringan agar servo dapat menggerakkannya dengan optimal. Solusinya adalah dengan menggunakan kardus sebagai material utama prototype yang mudah dibentuk, ringan, dan tetap dapat merepresentasikan mekanisme gerak lengan robot secara nyata.",
+    role: [
+      "Merancang dan membuat prototype fisik lengan robot dari bahan kardus",
+      "Merangkai seluruh komponen hardware (ESP32, servo, joystick)",
+      "Memprogram mikrokontroler menggunakan Arduino IDE untuk mengintegrasikan input joystick dengan gerakan servo",
+    ],
+    githubUrl: "#",
+    demoUrl: "https://youtube.com/shorts/hBT8gOZeHeg?si=woh8Wu8OKlsnzhUs",
+  },
+  {
+    id: 2,
+    title: "Proyek Smart Home Berbasis IoT dan AI (Desember 2025)",
+    shortDesc:
+      "Sistem rumah pintar berbasis IoT dan AI untuk mengontrol perangkat melalui aplikasi mobile dan perintah suara.",
+    image: "assets/smarthome.jpeg",
+    tags: ["ESP32", "Smart Home", "IoT", "Mobile App", "MQTT", "AI"],
+    fullDesc:
+      "Menciptakan sistem dan prototype yang memungkinkan pengguna mengontrol perangkat rumah dalam sebuah aplikasi seperti menyalakan lampu, membuka/menutup garasi, dan jemuran. Sistem ini juga dilengkapi oleh sensor otomatis yang dapat bekerja sendiri seperti lampu yang akan menyala saat gelap dan jemuran yang akan menutup sendiri ketika kondisi terkena air/hujan, serta terdapat fitur voice command AI sehingga pengguna dapat memerintahkan untuk menyala matikan lampu, buka tutup garasi dan jemuran. Pengguna juga dapat memonitoring cuaca dan suhu.",
+    features: [
+      "Kontrol perangkat rumah secara remote melalui aplikasi mobile",
+      "Monitoring suhu dan cuaca real-time",
+      "Voice control menggunakan AI",
+      "Notifikasi status perangkat",
+    ],
+    technologies: [
+      {
+        category: "Hardware",
+        items:
+          "ESP32, Expansion Shielder esp32, LED Module, Servo, LDR Sensor, DHT11 Sensor, Rain Sensor",
+      },
+      {
+        category: "Software",
+        items: "VS Code, MicroPython (Thony IDE), Expo GO (Mobile)",
+      },
+      { category: "Communication", items: "MQTT Protocol (Mosquitto), WiFi" },
+      { category: "Backend", items: "Node.js" },
+      { category: "Frontend", items: "React Native/Expo GO (Mobile)" },
+    ],
+    challenges:
+      "Salah satu tantangan dalam project ini adalah mengimplementasikan IoT dengan AI yang dapat dilihat langsung oleh orang orang. Solusinya adalah dengan membuat sebuah prototype rumah lengkap dengan fiturnya beserta mobile app sebagai kontrolnya.",
+    role: [
+      "Membuat miniatur/prototype rumah",
+      "Merangkai komponen IoT dan memprogramnya menggunakan Thony IDE",
+      "Menyambungkan Program menggunakan protokol komunikasi mqtt ke aplikasi yang sudah dibuat menggunakan vs code",
+    ],
+    githubUrl: "#",
+    demoUrl: "https://youtube.com/shorts/eSiXNXZyojc?feature=share",
+  },
+  {
+    id: 3,
+    title: "Lettura - Smart Hydroponic (Oktober 2025)",
+    shortDesc:
+      "Membuat sebuah sistem hidroponik pintar yang memungkinkan para petani hidroponik untuk menjaga tanaman mereka.",
+    image: "assets/lettura.png",
+    tags: ["ESP32", "Smart Farm", "IoT", "Mobile App", "MQTT", "AI"],
+    fullDesc:
+      "Membuat sebuah sistem hidroponik pintar yang memungkinkan para petani hidroponik untuk menjaga tanaman mereka. Sistem hidroponik ini masih terfokus pada tanaman selada sebagai media tanamnya, namun dapat dikembangkan lagi untuk tanaman hidroponik lainnya. Petani dapat memonitoring kondisi ph air dan nutrisi, kontrol pompa otomatis, serta dilengkapi kamera yang dapat mendeteksi penyakit pada tanaman selada.",
+    features: [
+      "Monitoring kondisi cuaca, pH, nutrisi air, serta tanaman secara real-time",
+      "Mengontrol pompa otomatis dan juga manual melalui aplikasi",
+      "Mendeteksi penyakit pada tanaman selada menggunakan kamera",
+      "Dashboard hasil monitoring dan kontrol",
+    ],
+    technologies: [
+      {
+        category: "Hardware",
+        items:
+          "ESP32 S3, Expansion Shielder esp32, Sensor pH, Sensor TDS, Kamera ESP32, Relay, pompa air",
+      },
+      { category: "Software", items: "VS Code, Arduino IDE, Expo Go (Mobile)" },
+      { category: "Communication", items: "WiFi, MQTT (HiveMQ)" },
+      { category: "Backend", items: "Node.js" },
+      { category: "Frontend", items: "React Native/Expo GO (Mobile)" },
+    ],
+    challenges:
+      "Tantangan utama adalah kalibrasi sensor agar memberikan pembacaan yang akurat, training data AI. Solusinya adalah melakukan kalibrasi berkala dengan alat standar dan implementasi filter untuk mengurangi noise pada data training.",
+    role: [
+      "Merancang dan mengembangkan sistem hidroponik pintar",
+      "Mengintegrasikan sensor pH dan nutrisi",
+      "Membantu membuat aplikasi mobile",
+    ],
+    githubUrl: "#",
+    demoUrl: "https://youtu.be/ZtRGXOwDjM4?si=iwfZj3jNhl14slza",
+  },
+  {
+    id: 4,
+    title: "Rivenovoa - River Cleaning Boat Controller (Januari 2024)",
+    shortDesc:
+      "Membuat sebuah prototype berupa kapal pembersih sungai yang dapat membantu mempermudah untuk membersihkan sungai.",
+    image: "assets/rivenova.jpeg",
+    tags: ["ESP32", "Sensor", "Automation", "Wifi Control", "Robot"],
+    fullDesc:
+      "Sistem kontrol untuk kapal pembersih sungai berbasis IoT yang dirancang untuk mendukung upaya pengelolaan kebersihan sungai secara otomatis dan efisien. Sistem ini memungkinkan pengendalian arah, kecepatan, dan mekanisme pengangkut sampah dari jarak jauh menggunakan mikrokontroler ESP32 yang terhubung dengan berbagai sensor pendukung seperti sensor ultrasonik, GPS, dan kamera. Fokus desain ditekankan pada efisiensi operasional, kemudahan penggunaan oleh operator, serta keandalan sistem dalam berbagai kondisi sungai yang beragam. Proses pengembangan mencakup perancangan skema elektronik, pemrograman firmware, integrasi antarmuka monitoring berbasis web atau aplikasi mobile, serta pengujian lapangan secara bertahap untuk memastikan kinerja optimal di lingkungan nyata.",
+    features: [
+      "Otomatisasi proses pembersihan sungai dengan kapal pembersih",
+      "Otomatisasi pengangkut sampah dengan sistem kontrol berbasis IoT",
+      "Kontrol melalui aplikasi mobile dengan komunikasi WiFi",
+      "Sensor GPS untuk navigasi dan pelacakan lokasi",
+    ],
+    technologies: [
+      {
+        category: "Hardware",
+        items:
+          "ESP32, Expansion Shield ESP32, Sensor GPS, Servo, motor DC, motor driver",
+      },
+      { category: "Software", items: "Arduino IDE" },
+      { category: "Software", items: "VS Code" },
+    ],
+    challenges:
+      "Tantangan utama proyek ini adalah menjaga stabilitas operasional kapal di tengah arus sungai yang tidak menentu serta memastikan koneksi nirkabel antara kapal dan operator tetap andal. Solusinya adalah merancang lambung kapal yang stabil dan tahan air, serta mengoptimalkan sistem komunikasi berbasis ESP32 agar tetap responsif di berbagai kondisi lapangan.",
+    role: [
+      "Merancang desain Rivenovoa",
+      "Mengintegrasikan sensor GPS untuk navigasi kapal",
+      "Membuat prototipe Rivenovoa serta menguji fungsionalitasnya",
+    ],
+    githubUrl: "#",
+    demoUrl: "https://youtube.com/shorts/2iErMcgb2BI?si=3AHL44ZuEdcaCa0g",
+  },
+  {
+    id: 5,
+    title: "Sistem Bandara Otomatis Autruck & Avto (Desember 2024)",
+    shortDesc:
+      "Membuat sebuah prototype berupa pushback truck (Autruck) dan garbarata otomatis (Avto) yang dapat membantu mempermudah sistem operasi di bandara.",
+    image: "assets/autruckavto.jpg",
+    tags: ["Arduino", "Sensor", "Automation"],
+    fullDesc:
+      "Ground handling pesawat seperti proses taxiing dan pengoperasian garbarata masih banyak dilakukan secara manual sehingga memakan waktu, kurang presisi, serta berisiko terjadi kesalahan manusia yang dapat menurunkan efisiensi dan keselamatan operasional. Oleh karena itu, proyek ini bertujuan menghadirkan solusi otomatisasi berbasis IoT untuk meningkatkan efisiensi kerja, keselamatan, serta mendukung operasional yang lebih ramah lingkungan.\n\nSolusi yang diusulkan berupa penggunaan Autruck sebagai alat taxiing otomatis dan Avto sebagai garbarata otomatis. Autruck menggunakan sensor ultrasonik untuk mendeteksi posisi pesawat, kemudian Arduino memproses data dan mengatur pergerakan motor mengikuti jalur yang telah disediakan hingga berhenti pada waktu tertentu dan menarik pesawat. Selanjutnya, Avto bergerak menuju pesawat untuk menghubungkan akses penumpang, lalu kembali ke posisi awal setelah proses selesai, sementara Autruck melanjutkan tugas mengantarkan pesawat ke area keberangkatan. Sistem ini diharapkan mampu mengurangi ketergantungan pada operator manual, meningkatkan efisiensi waktu dan biaya, serta meningkatkan keselamatan operasional.",
+    features: [
+      "Otomatisasi proses taxiing dengan Autruck",
+      "Otomatisasi garbarata dengan Avto",
+      "Sensor ultrasonik untuk deteksi posisi pesawat",
+      "Sensor LDR untuk deteksi cahaya sebagai indikator jalan dan waktu berhenti Autruck",
+    ],
+    technologies: [
+      {
+        category: "Hardware",
+        items:
+          "Arduino Uno, Sensor Ultrasonik, Sensor LDR, Servo, motor DC, motor driver L293D",
+      },
+      { category: "Software", items: "Arduino IDE" },
+    ],
+    challenges:
+      "Tantangannya adalah membuat sistem yang bekerja sesuai ekspektasi, yaitu Autruck otomatis yang dapat menderek pesawat dan Avto sebagai garbarata otomatis. Solusinya adalah merancang prototipe sesuai kebutuhan teknis dan mekanik.",
+    role: [
+      "Merancang desain dan mekanisme kerja Autruck",
+      "Mengintegrasikan sensor ultrasonik dan LDR untuk deteksi posisi dan waktu",
+      "Membuat prototipe Autruck serta menguji fungsionalitasnya",
+    ],
+    githubUrl: "#",
+    demoUrl: "#",
+  },
+  {
+    id: 6,
+    title: "Robot 4WD with Bluetooth Control (Agustus 2024)",
+    shortDesc:
+      "Membuat sebuah prototype robot dengan 4 motor dc sebagai penggerak yang dapat mendeteksi objek sekitar dengan sensor ultrasonik dan bisa dikendalikan menggunakan serial bluetooth dari hp.",
+    image: "assets/robot4wd.png",
+    tags: ["Arduino Uno", "Robot", "Automation", "Bluetooth Control"],
+    fullDesc:
+      "Proyek ini merupakan pembuatan prototype robot mobile berbasis Arduino UNO yang menggunakan empat motor DC sebagai sistem penggerak utama sehingga robot mampu bergerak maju, mundur, berbelok kanan, dan kiri secara stabil. Robot dirancang menggunakan rangka berbahan akrilik sebagai badan utama untuk menopang seluruh komponen elektronik dan mekanik. Sistem penggerak dikontrol melalui motor driver yang berfungsi mengatur arah serta kecepatan putaran setiap motor agar pergerakan robot lebih presisi dan responsif.\n\nRobot dilengkapi dengan sensor ultrasonik yang berfungsi mendeteksi jarak dan keberadaan objek di sekitarnya sehingga mampu menghindari hambatan atau memberikan informasi kondisi lingkungan secara real-time. Selain itu, robot juga terintegrasi dengan modul Bluetooth yang memungkinkan pengguna mengendalikan pergerakan robot secara nirkabel melalui smartphone menggunakan komunikasi serial. Dengan kombinasi sistem kendali manual melalui Bluetooth dan kemampuan deteksi objek otomatis, prototype ini bertujuan sebagai dasar pengembangan robot pintar yang dapat diterapkan pada berbagai kebutuhan seperti robot monitoring, eksplorasi area terbatas, maupun simulasi kendaraan otonom berbasis IoT dan robotika. Saya membuat project ini untuk menambah pengetahuan dan mencoba mengimplementasikan hasil belajar, serta karena suka membuat prototype.",
+    features: [
+      "Dapat bergerak otomatis maupun di kontrol lewat hp menggunakan bluetooth",
+      "Dapat mendeteksi objek sekitar menggunakan sensor ultrasonik",
+      "Dapat bergerak di area yang tidak rata dengan 4 motor DC sebagai penggerak",
+    ],
+    technologies: [
+      {
+        category: "Hardware",
+        items:
+          "Arduino Uno, servo, 4 Motor DC, Motor Driver L293D, Sensor Ultrasonik, Modul Bluetooth HC-05",
+      },
+      { category: "Software", items: "Arduino IDE" },
+      {
+        category: "Communication",
+        items: "Bluetooth Serial Communication (Mobile)",
+      },
+    ],
+    challenges:
+      "Tantangan utama dalam proyek ini adalah mengintegrasikan sistem penggerak dengan sensor ultrasonik dan modul Bluetooth untuk memastikan robot dapat bergerak secara responsif dan akurat sesuai perintah pengguna serta mampu mendeteksi objek di sekitarnya. Solusinya adalah dengan melakukan kalibrasi yang tepat pada sensor ultrasonik untuk mendapatkan pembacaan jarak yang akurat, serta mengoptimalkan kode kontrol motor agar responsif terhadap input Bluetooth. Selain itu, pengujian berulang dilakukan untuk memastikan semua komponen bekerja harmonis dalam berbagai kondisi lingkungan.",
+    githubUrl: "#",
+    demoUrl: "https://youtu.be/f8GUOWEnlgw?si=XgQg0DDCnmXQcPL0",
+  },
+];
+
+let experienceData = [
+  {
+    type: "MAGANG / PENGALAMAN",
+    position: "Nama posisi atau peran",
+    organization: "Nama perusahaan / organisasi",
+    period: "Periode pengalaman",
+    summary:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in erat ut urna cursus vestibulum.",
+    responsibilities: [
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    ],
+    evidence: ["Dokumentasi kegiatan", "Hasil kerja / sertifikat"],
+  },
+];
+
+let skillsData = [
+  {
+    id: 1,
+    category: "Programming Languages",
+    items: [
+      "C/C++",
+      "Python (Basics)",
+      "MicroPython",
+      "JavaScript",
+      "React Native",
+    ],
+  },
+  {
+    id: 2,
+    category: "IoT & Embedded",
+    items: [
+      "Arduino",
+      "ESP32/ESP8266/Nano",
+      "Sensor Integration (DHT, Ultrasonic, LDR, DLL)",
+    ],
+  },
+  {
+    id: 3,
+    category: "Protocols & Tools",
+    items: ["MQTT", "Web Sockets", "REST API", "I2C/SPI"],
+  },
+  {
+    id: 4,
+    category: "Other Skills",
+    items: [
+      "Problem Solving",
+      "Time Management",
+      "Artificial Intelligence (Basics)",
+      "Git/GitHub",
+      "Prototyping",
+    ],
+  },
+];
+
 // DATA ACHIEVEMENTS
-const achievementsData = [
+let achievementsData = [
   {
     id: 1,
     title: "Best Project 1 - Kelas Inkubasi",
@@ -21,7 +284,7 @@ const achievementsData = [
   {
     id: 2,
     title: "Juara 3 IoT Fitcom 3.0",
-    organizer: "Universitas Dinammika Surabaya",
+    organizer: "Universitas Dinamika Surabaya",
     year: "2025",
     shortDesc: "Membuat sebuah sistem pertanian pintar dalam lomba IoT Fitcom",
     fullDesc:
@@ -79,7 +342,7 @@ const achievementsData = [
     shortDesc:
       "Penghargaan sebagai project DTP (Digital Talent Program) IoT terbaik 2024.",
     fullDesc:
-      "Penghargaan sebagai project DTP (Digital Talent Program) IoT terbaik 2024. Mmebuat sebuah proyek Autruck dan Avto, yaitu pushback tuck otomatis dan garbarata otomatis untuk membantu sistem operasi di bandara yang dapat menderek pesawat, menghubungkan akses penumpang, serta mengurangi ketergantungan pada operator manual.",
+      "Penghargaan sebagai project DTP (Digital Talent Program) IoT terbaik 2024. Membuat sebuah proyek Autruck dan Avto, yaitu pushback truck otomatis dan garbarata otomatis untuk membantu sistem operasi di bandara yang dapat menderek pesawat, menghubungkan akses penumpang, serta mengurangi ketergantungan pada operator manual.",
     image: "assets/terbaikdtpiot.png",
   },
   {

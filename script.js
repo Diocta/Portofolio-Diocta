@@ -1,96 +1,96 @@
-// Smooth scroll untuk navigasi
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
+const revealedElements = new WeakSet();
+let portfolioRevealObserver;
 
-// Update active navigation saat scroll
-const sections = document.querySelectorAll('.section');
-const navLinks = document.querySelectorAll('.nav-link');
+window.refreshPortfolioReveals = () => {
+  const revealItems = document.querySelectorAll(
+    ".reveal-item, .skill-category",
+  );
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
 
-window.addEventListener('scroll', () => {
-    let current = '';
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= sectionTop - 100) {
-            current = section.getAttribute('id');
-        }
-    });
+  revealItems.forEach((element, index) => {
+    if (revealedElements.has(element)) return;
+    revealedElements.add(element);
+    element.classList.add("reveal-item");
+    element.style.setProperty("--reveal-delay", `${(index % 4) * 70}ms`);
 
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').slice(1) === current) {
-            link.classList.add('active');
-        }
-    });
-});
+    if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+      element.classList.add("is-visible");
+      return;
+    }
 
-// Animasi skill progress bars saat masuk viewport
-const observerOptions = {
-    threshold: 0.5
+    if (!portfolioRevealObserver) {
+      portfolioRevealObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          });
+        },
+        { threshold: 0.12 },
+      );
+    }
+
+    portfolioRevealObserver.observe(element);
+  });
 };
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.width = entry.target.getAttribute('style').match(/width:\s*(\d+%)/)[1];
-        }
+document.addEventListener("DOMContentLoaded", () => {
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navMenu = document.querySelector(".nav-menu");
+
+  const closeMenu = () => {
+    if (!menuToggle || !navMenu) return;
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "Buka navigasi");
+    navMenu.classList.remove("is-open");
+    document.body.classList.remove("menu-open");
+  };
+
+  if (menuToggle && navMenu) {
+    menuToggle.addEventListener("click", () => {
+      const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+      menuToggle.setAttribute("aria-expanded", String(!isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Buka navigasi" : "Tutup navigasi",
+      );
+      navMenu.classList.toggle("is-open", !isOpen);
+      document.body.classList.toggle("menu-open", !isOpen);
     });
-}, observerOptions);
 
-// Observe semua skill progress bars
-document.addEventListener('DOMContentLoaded', () => {
-    const skillBars = document.querySelectorAll('.skill-progress');
-    
-    // Reset width dulu
-    skillBars.forEach(bar => {
-        const targetWidth = bar.style.width;
-        bar.setAttribute('data-width', targetWidth);
-        bar.style.width = '0';
+    navMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", closeMenu);
     });
-    
-    // Observe untuk animasi
-    const skillObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const bar = entry.target;
-                setTimeout(() => {
-                    bar.style.width = bar.getAttribute('data-width');
-                }, 100);
-            }
-        });
-    }, observerOptions);
-    
-    skillBars.forEach(bar => skillObserver.observe(bar));
-});
 
-// Animasi fade-in untuk cards saat scroll
-const fadeElements = document.querySelectorAll('.project-card, .achievement-card');
-
-const fadeObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeMenu();
     });
-}, {
-    threshold: 0.1
-});
+  }
 
-fadeElements.forEach(element => {
-    element.style.opacity = '0';
-    element.style.transform = 'translateY(20px)';
-    element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    fadeObserver.observe(element);
+  window.refreshPortfolioReveals();
+
+  const sections = document.querySelectorAll(".section[id]");
+  if (!sections.length) return;
+
+  const navLinks = document.querySelectorAll(".nav-link");
+  const updateActiveLink = () => {
+    const currentSection = [...sections]
+      .filter((section) => section.getBoundingClientRect().top <= 120)
+      .at(-1);
+    if (!currentSection) return;
+
+    navLinks.forEach((link) => {
+      const target = new URL(link.href, window.location.href);
+      const isActive =
+        target.pathname === window.location.pathname &&
+        target.hash === `#${currentSection.id}`;
+      link.classList.toggle("active", isActive);
+    });
+  };
+
+  window.addEventListener("scroll", updateActiveLink, { passive: true });
+  updateActiveLink();
 });

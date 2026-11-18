@@ -1,0 +1,272 @@
+.experience-page {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--bg-dark);
+  background-image: linear-gradient(
+    90deg,
+    transparent 0,
+    transparent calc(50% - 1px),
+    rgba(114, 217, 189, 0.035) 50%,
+    transparent calc(50% + 1px)
+  );
+}
+
+.experience-page .container {
+  max-width: 1040px;
+}
+
+.experience-page-heading {
+  max-width: 680px;
+  margin-bottom: 76px;
+}
+
+.experience-page-heading .page-title {
+  margin-bottom: 18px;
+  font-size: 4.2rem;
+  line-height: 1;
+}
+
+.experience-page-heading .page-subtitle {
+  max-width: 54ch;
+  margin-bottom: 28px;
+  font-size: 1.05rem;
+}
+
+.placeholder-notice {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border: 1px solid rgba(230, 185, 111, 0.35);
+  color: var(--accent-color);
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+.placeholder-notice span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-color);
+}
+
+.experience-list {
+  position: relative;
+  display: grid;
+  gap: 68px;
+}
+
+.experience-entry {
+  position: relative;
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr);
+  gap: 22px;
+  padding-bottom: 2px;
+}
+
+.experience-entry:not(:last-child)::before {
+  position: absolute;
+  top: 20px;
+  bottom: -68px;
+  left: 10px;
+  width: 1px;
+  background: var(--border-color);
+  content: "";
+}
+
+.experience-marker {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  padding-top: 6px;
+}
+
+.experience-marker span {
+  width: 21px;
+  height: 21px;
+  border: 5px solid var(--bg-dark);
+  border-radius: 50%;
+  background: var(--primary-color);
+  box-shadow: 0 0 0 1px var(--primary-color);
+}
+
+.experience-main {
+  min-width: 0;
+}
+
+.experience-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.experience-heading .eyebrow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.placeholder-label {
+  padding: 3px 6px;
+  border: 1px solid rgba(230, 185, 111, 0.4);
+  color: var(--accent-color);
+  font-size: 0.6rem;
+}
+
+.experience-heading h2 {
+  max-width: 24ch;
+  margin-bottom: 8px;
+  font-size: 1.8rem;
+  line-height: 1.2;
+}
+
+.experience-organization {
+  color: var(--text-secondary);
+}
+
+.experience-period {
+  flex: 0 0 auto;
+  padding-top: 2px;
+  color: var(--accent-color);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.experience-summary {
+  max-width: 68ch;
+  padding: 22px 0 12px;
+  color: var(--text-secondary);
+}
+
+.experience-responsibilities {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 26px;
+  padding-left: 18px;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.experience-responsibilities li::marker {
+  color: var(--primary-color);
+}
+
+.experience-evidence {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.evidence-placeholder {
+  position: relative;
+  display: flex;
+  min-height: 200px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 4px;
+  overflow: hidden;
+  padding: 18px;
+  border: 1px dashed rgba(114, 217, 189, 0.38);
+  background-color: #111c1f;
+  background-image:
+    linear-gradient(rgba(114, 217, 189, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(114, 217, 189, 0.055) 1px, transparent 1px);
+  background-size: 24px 24px;
+  color: var(--text-primary);
+}
+
+.evidence-index {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  color: rgba(237, 244, 242, 0.45);
+  font-size: 0.72rem;
+}
+
+.evidence-placeholder > span:nth-child(2) {
+  font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.evidence-placeholder small {
+  color: var(--primary-color);
+  font-size: 0.62rem;
+  font-weight: 700;
+}
+
+.evidence-image {
+  position: relative;
+  display: block;
+  min-height: 200px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.evidence-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 300ms ease;
+}
+
+.evidence-image:hover img {
+  transform: scale(1.03);
+}
+
+.evidence-image span {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 10px 12px;
+  background: rgba(8, 14, 17, 0.88);
+  font-size: 0.8rem;
+}
+
+@media (max-width: 700px) {
+  .experience-page-heading {
+    margin-bottom: 54px;
+  }
+
+  .experience-page-heading .page-title {
+    font-size: 3rem;
+  }
+
+  .experience-entry {
+    grid-template-columns: 28px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .experience-heading {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .experience-heading h2 {
+    font-size: 1.4rem;
+  }
+
+  .experience-evidence {
+    grid-template-columns: 1fr;
+  }
+
+  .evidence-placeholder {
+    min-height: 180px;
+  }
+
+  .evidence-image {
+    min-height: 180px;
+  }
+}

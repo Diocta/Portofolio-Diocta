@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b1115" />
+    <title>Pengalaman - Diocta</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style-common.css" />
+    <link rel="stylesheet" href="style-experience.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <a class="nav-brand" href="index.html">Diocta<span>.</span></a>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-navigation"
+          aria-label="Buka navigasi"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-menu" id="primary-navigation">
+          <li><a href="index.html#home" class="nav-link">Beranda</a></li>
+          <li><a href="projects.html" class="nav-link">Proyek</a></li>
+          <li>
+            <a href="experience.html" class="nav-link active">Pengalaman</a>
+          </li>
+          <li><a href="index.html#skills" class="nav-link">Keahlian</a></li>
+          <li><a href="achievements.html" class="nav-link">Prestasi</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="page-section experience-page">
+      <div class="container">
+        <header class="experience-page-heading">
+          <p class="eyebrow">CATATAN PROSES / 01</p>
+          <h1 class="page-title">Pengalaman</h1>
+          <p class="page-subtitle">
+            Tempat untuk mendokumentasikan pekerjaan, kolaborasi, dan hal yang
+            saya pelajari di setiap perjalanan.
+          </p>
+          <p class="placeholder-notice">
+            <span></span> ISIAN CONTOH — GANTI DENGAN INFORMASI SEBENARNYA
+          </p>
+        </header>
+
+        <div class="experience-list" id="experience-list"></div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <a class="nav-brand" href="index.html">Diocta<span>.</span></a>
+        <p>&copy; <span data-current-year>2026</span> Diocta</p>
+        <div class="social-links">
+          <a
+            href="https://github.com/Diocta"
+            class="social-link"
+            target="_blank"
+            rel="noreferrer"
+            >GitHub</a
+          >
+          <a
+            href="https://www.linkedin.com/in/diocta-brian-cesario-3088692b0/"
+            class="social-link"
+            target="_blank"
+            rel="noreferrer"
+            >LinkedIn</a
+          >
+          <a href="mailto:dioctabrian@gmail.com" class="social-link">Email</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="supabase-config.js"></script>
+    <script src="app.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

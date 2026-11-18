@@ -3,7 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Detail Project - IoT Engineer</title>
+    <meta name="theme-color" content="#0b1115" />
+    <title>Detail Proyek - Diocta</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style-common.css" />
     <link rel="stylesheet" href="style-projects.css" />
     <link rel="stylesheet" href="style-detail.css" />
@@ -12,11 +19,23 @@
     <!-- Navigation -->
     <nav class="navbar">
       <div class="container">
-        <div class="nav-brand">Diocta</div>
-        <ul class="nav-menu">
+        <a class="nav-brand" href="index.html">Diocta<span>.</span></a>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-navigation"
+          aria-label="Buka navigasi"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-menu" id="primary-navigation">
           <li><a href="index.html#home" class="nav-link">Beranda</a></li>
-          <li><a href="projects.html" class="nav-link active">Project</a></li>
-          <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+          <li><a href="projects.html" class="nav-link active">Proyek</a></li>
+          <li><a href="experience.html" class="nav-link">Pengalaman</a></li>
+          <li><a href="index.html#skills" class="nav-link">Keahlian</a></li>
           <li><a href="achievements.html" class="nav-link">Prestasi</a></li>
         </ul>
       </div>
@@ -38,7 +57,7 @@
             >
               <path d="M19 12H5M12 19l-7-7 7-7" />
             </svg>
-            Kembali ke Projects
+            Kembali ke proyek
           </a>
         </div>
 
@@ -115,342 +134,22 @@
     <!-- Footer -->
     <footer class="footer">
       <div class="container">
-        <p>&copy; 2024 Diocta. All rights reserved.</p>
+        <p>&copy; <span data-current-year>2026</span> Diocta</p>
         <div class="social-links">
           <a href="https://github.com/Diocta" class="social-link">GitHub</a>
           <a
-            href="https://www.linkedin.com/in/diocta-brian-cesario-3088692b0?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            href="https://www.linkedin.com/in/diocta-brian-cesario-3088692b0/"
             class="social-link"
             >LinkedIn</a
           >
-          <a href="#" class="social-link">dioctabrian@gmail.com</a>
+          <a href="mailto:dioctabrian@gmail.com" class="social-link">Email</a>
         </div>
       </div>
     </footer>
 
-    <script>
-      // PROJECT DATA - Semua data project disimpan di sini
-      const projectsData = [
-        {
-          id: 1,
-          title: "Proyek Lengan Robot (Maret 2026)",
-          shortDesc: "Membuat sebuah prototype lengan robot berbasis ESP32 yang dapat digerakkan secara manual melalui joystick. Lengan robot ini dibangun menggunakan rangka dari kardus yang dirancang dan dirakit sendiri, kemudian diintegrasikan dengan Esp32 yang dapt dikontrol secara real-time lewat joystick.",
-          image: "assets/lenganrobot1.jpeg",
-          tags: ["ESP32", "Robot", "IoT", "Controlling"],
-          fullDesc: "[Membuat sebuah prototype lengan robot berbasis ESP32 yang dapat digerakkan secara manual melalui joystick. Lengan robot ini dibangun menggunakan rangka dari kardus yang dirancang dan dirakit sendiri, kemudian diintegrasikan dengan Esp32 yang dapt dikontrol secara real-time lewat joystick.]",
-          features: [
-            "Kontrol gerakan lengan robot secara real-time menggunakan joystick",
-            "Gerakan multi-arah pada beberapa sendi lengan menggunakan servo",
-            "Prototype fisik berbentuk lengan robot dari bahan kardus"
-          ],
-          technologies: [
-            {
-              category: "Hardware",
-              items: "ESP32, Expansion Shield ESP32, Joystick Module, Servo Motor"
-            },
-            {
-              category: "Software",
-              items: "Arduino IDE"
-            },
-            {
-              category: "Communication",
-              items: "Sinyal PWM untuk kontrol servo"
-            }
-          ],
-          challenges: "Salah satu tantangan dalam proyek ini adalah merancang struktur lengan yang cukup kuat namun ringan agar servo dapat menggerakkannya dengan optimal. Solusinya adalah dengan menggunakan kardus sebagai material utama prototype yang mudah dibentuk, ringan, dan tetap dapat merepresentasikan mekanisme gerak lengan robot secara nyata.",
-          role: [
-            "Merancang dan membuat prototype fisik lengan robot dari bahan kardus",
-            "Merangkai seluruh komponen hardware (ESP32, servo, joystick)",
-            "Memprogram mikrokontroler menggunakan Arduino IDE untuk mengintegrasikan input joystick dengan gerakan servo"
-          ],
-          githubUrl: "#",
-          demoUrl: "https://youtube.com/shorts/hBT8gOZeHeg?si=woh8Wu8OKlsnzhUs",
-        },
-        {
-          id: 2,
-          title: "Proyek Smart Home Berbasis IoT dan AI (Desember 2025)",
-          shortDesc:
-            "Sistem rumah pintas berbasis IoT dan AI yang memungkinkan kontrol perangkat rumah melalui aplikasi mobile dan voice command.",
-          image: "assets/smarthome.jpeg",
-          tags: ["ESP32", "Smart Home", "IoT", "Mobile App", "MQTT", "AI"],
-          fullDesc: `Menciptakan sistem dan prototype yang memungkinkan pengguna mengontrol perangkat rumah dalam sebuah aplikasi seperti menyalakan lampu, membuka/menutup garasi, dan jemuran. Sistem ini juga dilengkapi oleh sensor otomatis yang dapat bekerja sendiri seperti lampu yang akan menyala saat gelap dan jemuran yang akan menutup sendiri ketika kondisi terkena air/hujan, serta terdapat fitur voice command AI sehingga pengguna dapat memerintahkan untuk menyala matikan lampu, buka tutup garasi dan jemuran. Pengguna juga dapat memonitoring cuaca dan suhu. `,
-          features: [
-            "Kontrol perangkat rumah secara remote melalui aplikasi mobile",
-            "Monitoring suhu dan cuaca real-time",
-            "Voice control menggunakan AI",
-            "Notifikasi status perangkat",
-          ],
-          technologies: [
-            {
-              category: "Hardware",
-              items:
-                "ESP32, Expansion Shielder esp32, LED Module, Servo, LDR Sensor, DHT11 Sensor, Rain Sensor",
-            },
-            {
-              category: "Software",
-              items: "VS Code, MicroPython (Thony IDE), Expo GO (Mobile)",
-            },
-            {
-              category: "Communication",
-              items: "MQTT Protocol (Mosquitto), WiFi",
-            },
-            { category: "Backend", items: "Node.js" },
-            { category: "Frontend", items: "React Native/Expo GO (Mobile)" },
-          ],
-          challenges:
-            "Salah satu tantangan dalam project ini adalah mengimplementasikan IoT dengan AI yang dapat dilihat langsung oleh orang orang. Solusinya adalah dengan membuat sebuah prototype rumah lengkap dengan fiturnya beserta mobile app sebagai kontrolnya.",
-          role: [
-            "Membuat miniatur/prototype rumah",
-            "Merangkai komponen IoT dan memprogramnya menggunakan Thony IDE",
-            "Menyambungkan Program menggunakan protokol komunikasi mqtt ke aplikasi yang sudah dibuat menggunakan vs code",
-          ],
-          githubUrl: "#",
-          demoUrl: "https://youtube.com/shorts/eSiXNXZyojc?feature=share",
-        },
-        {
-          id: 3,
-          title: "Lettura - Smart Hidrponic (October 2025)",
-          shortDesc:
-            "Membuat sebuah sistem hidroponik pintar yang memungkinkan para petani hidroponik untuk menjaga tanaman mereka. ",
-          image: "assets/lettura.png",
-          tags: ["ESP32", "Smart Farm", "IoT", "Mobile App", "MQTT", "AI"],
-          fullDesc: `Membuat sebuah sistem hidroponik pintar yang memungkinkan para petani hidroponik untuk menjaga tanaman mereka. Sistem hidroponik ini masih terfokus pada tanaman selada sebagai media tanamnya, namun dapat dikembangkan lagi untuk tanaman hidroponik lainnya. Petani dapat memonitoring kondisi ph air dan nutrisi, kontrol pompa otomatis, serta dilengkapi kamera yang dapat mendeteksi penyakit pada tanaman selada.`,
-          features: [
-            "Monitoring kondisi cuaca, pH, nutrisi air, serta tanaman secara real-time",
-            "Mengontrol pompa otomatis dan juga manual melalui aplikasi",
-            "Mendeteksi penyakit pada tanaman selada menggunakan kamera",
-            "Dashboard hasil monitoring dan kontrol",
-          ],
-          technologies: [
-            {
-              category: "Hardware",
-              items:
-                "ESP32 S3, Expansion Shielder esp32, Sensor pH, Sensor TDS, Kamera ESP32, Relay, pompa air",
-            },
-            {
-              category: "Software",
-              items: "VS Code, Arduino IDE, Expo Go (Mobile)",
-            },
-            { category: "Communication", items: "WiFi, MQTT (HiveMQ)" },
-            { category: "Backend", items: "Node.js" },
-            { category: "Frontend", items: "React Native/Expo GO (Mobile)" },
-          ],
-          challenges:
-            "Tantangan utama adalah kalibrasi sensor agar memberikan pembacaan yang akurat, training data AI. Solusinya adalah melakukan kalibrasi berkala dengan alat standar dan implementasi filter untuk mengurangi noise pada data training.",
-          role: [
-            "Merancang desaindan mengembangkan sistem hidroponik pintar",
-            "Mengintegrasikan sensor pH dan nutrisi",
-            "Membantu membuat aplikasi mobile",
-          ],
-          githubUrl: "#",
-          demoUrl: "https://youtu.be/ZtRGXOwDjM4?si=iwfZj3jNhl14slza",
-        },
-        {
-          id: 4,
-          title: "Rivenovoa - River Cleaning Boat Controller (Januari 2024)",
-          shortDesc:
-            "Membuat sebuah prototype berupa kapal pembersih sungai yang dapat membantu mempermudah untuk membersihkan sungai.",
-          image: "assets/rivenova.jpeg",
-          tags: ["ESP32", "Sensor", "Automation", "Wifi Control", "Robot"],
-          fullDesc: `Sistem kontrol untuk kapal pembersih sungai berbasis IoT yang dirancang untuk mendukung upaya pengelolaan kebersihan sungai secara otomatis dan efisien. Sistem ini memungkinkan pengendalian arah, kecepatan, dan mekanisme pengangkut sampah dari jarak jauh menggunakan mikrokontroler ESP32 yang terhubung dengan berbagai sensor pendukung seperti sensor ultrasonik, GPS, dan kamera. Fokus desain ditekankan pada efisiensi operasional, kemudahan penggunaan oleh operator, serta keandalan sistem dalam berbagai kondisi sungai yang beragam. Proses pengembangan mencakup perancangan skema elektronik, pemrograman firmware, integrasi antarmuka monitoring berbasis web atau aplikasi mobile, serta pengujian lapangan secara bertahap untuk memastikan kinerja optimal di lingkungan nyata.
-`,
-          features: [
-            "Otomatisasi proses pembersihan sungai dengan kapal pembersih",
-            "Otomatisasi pengangkut sampah dengan sistem kontrol berbasis IoT",
-            "Kontrol melalui aplikasi mobile dengan komunikasi WiFi",
-            "Sensor GPS untuk navigasi dan pelacakan lokasi",
-          ],
-          technologies: [
-            {
-              category: "Hardware",
-              items:
-                "ESP32, Expansion Shield ESP32, Sensor GPS, Servo, motor DC, motor driver",
-            },
-            { category: "Software", items: "Arduino IDE" },
-            { category: "Software", items: "VS Code" },
-          ],
-          challenges:
-            "Tantangan utama proyek ini adalah menjaga stabilitas operasional kapal di tengah arus sungai yang tidak menentu serta memastikan koneksi nirkabel antara kapal dan operator tetap andal. Solusinya adalah merancang lambung kapal yang stabil dan tahan air, serta mengoptimalkan sistem komunikasi berbasis ESP32 agar tetap responsif di berbagai kondisi lapangan.",
-          role: [
-            "Merancang desain Rivenovoa",
-            "Mengintegrasikan sensor GPS untuk navigasi kapal",
-            "Membuat prototipe Rivenovoa serta menguji fungsionalitasnya",
-          ],
-          githubUrl: "#",
-          demoUrl: "https://youtube.com/shorts/2iErMcgb2BI?si=3AHL44ZuEdcaCa0g",
-        },
-        {
-          id: 5,
-          title: "Sistem Bandara Otomatis Autruck & Avto (Desember 2024)",
-          shortDesc:
-            "Membuat sebuah prototype berupa pushback truck (Autruck) dan garbarata otomatis (Avto) yang dapat membantu mempermudah sistem operasi di bandara.",
-          image: "assets/autruckavto.jpg",
-          tags: ["Arduino", "Sensor", "Automation"],
-          fullDesc: `Ground handling pesawat seperti proses taxiing dan pengoperasian garbarata masih banyak dilakukan secara manual sehingga memakan waktu, kurang presisi, serta berisiko terjadi kesalahan manusia yang dapat menurunkan efisiensi dan keselamatan operasional. Oleh karena itu, proyek ini bertujuan menghadirkan solusi otomatisasi berbasis IoT untuk meningkatkan efisiensi kerja, keselamatan, serta mendukung operasional yang lebih ramah lingkungan.
-
-Solusi yang diusulkan berupa penggunaan Autruck sebagai alat taxiing otomatis dan Avto sebagai garbarata otomatis. Autruck menggunakan sensor ultrasonik untuk mendeteksi posisi pesawat, kemudian Arduino memproses data dan mengatur pergerakan motor mengikuti jalur yang telah disediakan hingga berhenti pada waktu tertentu dan menarik pesawat. Selanjutnya, Avto bergerak menuju pesawat untuk menghubungkan akses penumpang, lalu kembali ke posisi awal setelah proses selesai, sementara Autruck melanjutkan tugas mengantarkan pesawat ke area keberangkatan. Sistem ini diharapkan mampu mengurangi ketergantungan pada operator manual, meningkatkan efisiensi waktu dan biaya, serta meningkatkan keselamatan operasional.
-`,
-          features: [
-            "Otomatisasi proses taxiing dengan Autruck",
-            "Otomatisasi garbarata dengan Avto",
-            "Sensor ultrasonik untuk deteksi posisi pesawat",
-            "Sensor LDR untuk deteksi cahaya sebagai indikator jalan dan waktu berhenti Autruck",
-          ],
-          technologies: [
-            {
-              category: "Hardware",
-              items:
-                "Arduino Uno, Sensor Ultrasonik, Sensor LDR, Servo, motor DC, motor driver L293D",
-            },
-            { category: "Software", items: "Arduino IDE" },
-          ],
-          challenges:
-            "Tantangan adalah membuat sistem yang dapat bekerja sesuai dengan ekpektasi seperti autruck otomatis yang dapat menderek pesawat dan avto garbarata otomatis. Solusinya membuat desain dan prototipe yang sesuai dengan kebutuhan teknis dan mekanik.",
-          role: [
-            "Merancang desain dan mekanisme kerja Autruck",
-            "Mengintegrasikan sensor ultrasonik dan LDR untuk deteksi posisi dan waktu",
-            "Membuat prototipe Autruck serta menguji fungsionalitasnya",
-          ],
-          githubUrl: "#",
-          demoUrl: "#",
-        },
-        {
-          id: 6,
-          title: "Robot 4WD with Bluetooth Control (Agustus 2024)",
-          shortDesc:
-            "Membuat sebuah prototype robot dengan 4 motor dc sebagai penggerak yang dapat mendeteksi objek sekitar dengan sensor ultrasonik dan bisa dikendalikan menggunakan serial bluetooth dari hp.",
-          image: "assets/robot4wd.png",
-          tags: ["Arduino Uno", "Robot", "Automation", "Bluetooth Control"],
-          fullDesc: `Proyek ini merupakan pembuatan prototype robot mobile berbasis Arduino UNO yang menggunakan empat motor DC sebagai sistem penggerak utama sehingga robot mampu bergerak maju, mundur, berbelok kanan, dan kiri secara stabil. Robot dirancang menggunakan rangka berbahan akrilik sebagai badan utama untuk menopang seluruh komponen elektronik dan mekanik. Sistem penggerak dikontrol melalui motor driver yang berfungsi mengatur arah serta kecepatan putaran setiap motor agar pergerakan robot lebih presisi dan responsif.
-
-Robot dilengkapi dengan sensor ultrasonik yang berfungsi mendeteksi jarak dan keberadaan objek di sekitarnya sehingga mampu menghindari hambatan atau memberikan informasi kondisi lingkungan secara real-time. Selain itu, robot juga terintegrasi dengan modul Bluetooth yang memungkinkan pengguna mengendalikan pergerakan robot secara nirkabel melalui smartphone menggunakan komunikasi serial. Dengan kombinasi sistem kendali manual melalui Bluetooth dan kemampuan deteksi objek otomatis, prototype ini bertujuan sebagai dasar pengembangan robot pintar yang dapat diterapkan pada berbagai kebutuhan seperti robot monitoring, eksplorasi area terbatas, maupun simulasi kendaraan otonom berbasis IoT dan robotika. Saya membuat project ini untuk menambah pengetahuan dan mencoba mengimplementasikan hasil belajar, serta karena suka membuat prototype.`,
-          features: [
-            "Dapat bergerak otomatis maupun di kontrol lewat hp menggunakan bluetooth",
-            "Dapat mendeteksi objek sekitar menggunakan sensor ultrasonik",
-            "Dapat bergerak di area yang tidak rata dengan 4 motor DC sebagai penggerak",
-          ],
-          technologies: [
-            {
-              category: "Hardware",
-              items:
-                "Arduino Uno, servo, 4 Motor DC, Motor Driver L293D, Sensor Ultrasonik, Modul Bluetooth HC-05",
-            },
-            { category: "Software", items: "Arduino IDE" },
-            {
-              category: "Communication",
-              items: "Bluetooth Serial Communication (Mobile)",
-            },
-          ],
-          challenges:
-            "Tantangan utama dalam proyek ini adalah mengintegrasikan sistem penggerak dengan sensor ultrasonik dan modul Bluetooth untuk memastikan robot dapat bergerak secara responsif dan akurat sesuai perintah pengguna serta mampu mendeteksi objek di sekitarnya. Solusinya adalah dengan melakukan kalibrasi yang tepat pada sensor ultrasonik untuk mendapatkan pembacaan jarak yang akurat, serta mengoptimalkan kode kontrol motor agar responsif terhadap input Bluetooth. Selain itu, pengujian berulang dilakukan untuk memastikan semua komponen bekerja harmonis dalam berbagai kondisi lingkungan.",
-          results:
-            "Berhasil deploy 20+ sensor nodes di area 5km² dengan uptime 99% dan battery life rata-rata 5 bulan.",
-          githubUrl: "#",
-          demoUrl: "https://youtu.be/f8GUOWEnlgw?si=XgQg0DDCnmXQcPL0",
-        },
-      ];
-
-      // Fungsi untuk render detail project
-      function renderProjectDetail() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const projectId = parseInt(urlParams.get("id"));
-
-        const project = projectsData.find((p) => p.id === projectId);
-
-        if (!project) {
-          window.location.href = "projects.html";
-          return;
-        }
-
-        // Update title
-        document.title = `${project.title} - IoT Developer`;
-
-        // Update project title
-        const titleElement = document.getElementById("project-title");
-        if (titleElement) titleElement.textContent = project.title;
-
-        // Update tags
-        const tagsElement = document.getElementById("project-tags");
-        if (tagsElement) {
-          tagsElement.innerHTML = project.tags
-            .map((tag) => `<span class="tag">${tag}</span>`)
-            .join("");
-        }
-
-        // Update image
-        const imageContainer = document.querySelector(".project-image-large");
-        if (imageContainer && project.image) {
-          imageContainer.innerHTML = `<img src="${project.image}" alt="${project.title}" style="width:100%; height:100%; object-fit:cover;">`;
-        }
-
-        // Update description
-        const descElement = document.getElementById("project-description");
-        if (descElement) {
-          let html = `
-                  <h2>Deskripsi Project</h2>
-                  <p>${project.fullDesc}</p>
-              `;
-
-          if (project.features) {
-            html += `
-                      <h3>Fitur Utama:</h3>
-                      <ul>
-                          ${project.features.map((feature) => `<li>${feature}</li>`).join("")}
-                      </ul>
-                  `;
-          }
-
-          if (project.technologies) {
-            html += `<h3>Teknologi yang Digunakan:</h3><ul>`;
-            project.technologies.forEach((tech) => {
-              html += `<li><strong>${tech.category}:</strong> ${tech.items}</li>`;
-            });
-            html += `</ul>`;
-          }
-
-          if (project.challenges) {
-            html += `
-                      <h3>Tantangan & Solusi:</h3>
-                      <p>${project.challenges}</p>
-                  `;
-          }
-
-          if (project.role) {
-            html += `<h3>Peran Dalam Project:</h3><ul>`;
-            project.role.forEach((role) => {
-              html += `<li>${role}</li>`;
-            });
-            html += `</ul>`;
-          }
-
-          descElement.innerHTML = html;
-        }
-
-        // Update links
-        const linksContainer = document.querySelector(".project-detail-links");
-        if (linksContainer) {
-          linksContainer.innerHTML = `
-                  <a href="${project.githubUrl}" class="btn btn-primary">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                      </svg>
-                      View on GitHub
-                  </a>
-                  <a href="${project.demoUrl}" class="btn btn-secondary">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                          <polyline points="15 3 21 3 21 9"></polyline>
-                          <line x1="10" y1="14" x2="21" y2="3"></line>
-                      </svg>
-                      Demo
-                  </a>
-              `;
-        }
-      }
-
-      // Panggil render saat DOM siap
-      document.addEventListener("DOMContentLoaded", renderProjectDetail);
-    </script>
+    <script src="data.js"></script>
+    <script src="supabase-config.js"></script>
+    <script src="app.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
