@@ -139,6 +139,8 @@ Jangan mengarang informasi yang belum diberikan. Untuk pengalaman magang, minta 
 - Tahun prestasi memakai field `year`; tahun proyek memakai `year` jika ada atau diekstrak dari judul untuk kompatibilitas data lama; pengalaman memakai tahun dari periode.
 - Form proyek admin meminta tahun agar proyek baru tersortir konsisten.
 - Data Supabase aktual berhasil diuji di browser: prestasi dimulai 2026, 2025, 2024; proyek dimulai 2026, 2025, 2024.
+- Semua pemuatan `app.js` di halaman publik memakai query versi `?v=20261118-year-sort` untuk menghindari bundle sorter lama dari cache browser/CDN.
+- Uji localhost setelah cache-bust: halaman prestasi tetap dimulai 2026 → 2025 → 2024 dan memuat URL script versi baru.
 
 ### 2026-11-16
 
