@@ -122,7 +122,7 @@ function renderHeroCarousel() {
           </figure>
           <div class="hero-profile-card">
             <img src="assets/profil.png" alt="" />
-            <div><span>PEMBUAT PROTOTIPE</span><strong>Diocta Brian Cesario</strong></div>
+            <div><span>Student at SMK Telkom Sidoarjo</span><strong>Diocta Brian Cesario</strong></div>
           </div>
         </article>
       `,
@@ -456,7 +456,7 @@ function renderExperienceCard(experience) {
       <div class="experience-main">
         <div class="experience-heading">
           <div>
-            <p class="eyebrow">${escapeHTML(experience.type)} <span class="placeholder-label">KONTEN CONTOH</span></p>
+            <p class="eyebrow">${escapeHTML(experience.type)} <span class="placeholder-label">SELESAI</span></p>
             <h2>${escapeHTML(experience.position)}</h2>
             <p class="experience-organization">${escapeHTML(experience.organization)}</p>
           </div>
