@@ -144,6 +144,22 @@ Jangan mengarang informasi yang belum diberikan. Untuk pengalaman magang, minta 
 - Mempertahankan allowlist `portfolio_admins`, pemeriksaan akses, RLS, dan session login; CRUD tidak mengirim email.
 - Uji browser: form email/password dan tombol reset tampil tanpa error JavaScript. Login/reset aktual belum diuji dengan kredensial pemilik.
 
+### 2026-11-20 - Redesain Hero Pixel/Cyber, Project Showcase (Maks 4), & Animasi Navbar
+
+- **Hero Carousel**: Terminal HUD Bio (slide 1) dan Single Card Proyek/Prestasi (slide 2 & 3) diposisikan presisi di tengah (`translateX(-50%)`), tombol panah bergaya pixel SVG, dan tombol aksi `.hero-btn` tema neon mint & amber.
+- **Showcase Proyek (`#project-featured`)**:
+  - Dibatasi hanya menampilkan 4 proyek terbaru (`slice(0, 4)`).
+  - Teks "FIELD NOTES" diganti menjadi `[ PROYEK LOG ]` dengan label tag monospace retro.
+  - Ditambahkan counter pixel `01 / 04` yang sinkron saat navigasi.
+  - Tombol langkah (`.spotlight-step`) diberi styling pixel badge dengan nomor `01`..`04` dan judul proyek (otomatis ringkas di mobile).
+  - Tombol panah diganti dengan pixel SVG chevrons dalam tombol kotak (`.icon-button`).
+  - Tombol aksi "Buka detail proyek" distyling menjadi pixel CTA dengan shimmer laser dan neon mint glow.
+  - Kartu showcase diberi aksen CRT scanline raster overlay.
+- **Animasi Navbar (Desktop & Mobile)**:
+  - Desktop: Bottom border ambient gradient glow, sensor blink pulse pada titik `Diocta.` (`nav-dot-blink`), dan stepped pixel underline (`steps(4, jump-end)`) saat hover/aktif.
+  - Mobile: Hamburger toggle (`.menu-toggle`) berbentuk pixel square dengan batang 2px dan cross transform; dropdown menu (`.nav-menu.is-open`) bergaya framed cyber panel dengan animasi pixel wipe-down (`pixel-menu-enter`) serta label `[AKTIF]` pada link yang dipilih.
+  - Ramah aksesibilitas: menghormati penuh `prefers-reduced-motion`.
+
 ### 2026-11-18 - Pengurutan Tahun Konten
 
 - Halaman proyek, prestasi, hero terbaru, dan admin mengurutkan konten berdasarkan tahun terbaru ke terlama.

@@ -456,21 +456,29 @@ function renderProjectSpotlight() {
   const spotlight = document.getElementById("project-spotlight");
   const picker = document.getElementById("spotlight-picker");
   if (!spotlight || !picker || !projectsData.length) return;
-  const orderedProjects = sortContentByYear(projectsData, "projects");
+
+  // Ambil 4 proyek terbaru saja
+  const orderedProjects = sortContentByYear(projectsData, "projects").slice(0, 4);
 
   const media = document.getElementById("spotlight-media");
   const title = document.getElementById("spotlight-title");
   const description = document.getElementById("spotlight-description");
   const tags = document.getElementById("spotlight-tags");
   const detailLink = document.getElementById("spotlight-link");
+  const indexEl = document.getElementById("spotlight-index");
   let activeIndex = 0;
 
   const renderActiveProject = () => {
     const project = orderedProjects[activeIndex];
+    const total = orderedProjects.length;
+
     media.classList.remove("is-changing");
     media.innerHTML = `
       <img src="${escapeHTML(project.image)}" alt="${escapeHTML(project.title)}" />
-      <figcaption><span>FIELD NOTES</span><span>${escapeHTML(project.tags.slice(0, 3).join(" / "))}</span></figcaption>
+      <figcaption>
+        <span class="spotlight-fig-label">[ PROYEK LOG ]</span>
+        <span class="spotlight-fig-tags">${escapeHTML(project.tags.slice(0, 3).join(" / "))}</span>
+      </figcaption>
     `;
     void media.offsetWidth;
     media.classList.add("is-changing");
@@ -481,6 +489,12 @@ function renderProjectSpotlight() {
       .join("");
     detailLink.href = `project-detail.html?id=${encodeURIComponent(project.id)}`;
 
+    // Update index counter
+    if (indexEl) {
+      const pad = (n) => String(n).padStart(2, "0");
+      indexEl.textContent = `${pad(activeIndex + 1)} / ${pad(total)}`;
+    }
+
     picker
       .querySelectorAll("[data-spotlight-index]")
       .forEach((button, index) => {
@@ -488,10 +502,14 @@ function renderProjectSpotlight() {
       });
   };
 
+  // Render picker buttons dengan nomor pixel
   picker.innerHTML = orderedProjects
     .map(
       (project, index) =>
-        `<button class="spotlight-step" type="button" data-spotlight-index="${index}" aria-pressed="false" aria-label="Pilih proyek ${escapeHTML(project.title)}"><span>${escapeHTML(project.title)}</span></button>`,
+        `<button class="spotlight-step" type="button" data-spotlight-index="${index}" aria-pressed="false" aria-label="Pilih proyek ${escapeHTML(project.title)}">
+          <span class="step-num">${String(index + 1).padStart(2, "0")}</span>
+          <span class="step-title">${escapeHTML(project.title)}</span>
+        </button>`,
     )
     .join("");
 

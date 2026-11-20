@@ -162,8 +162,11 @@
         >
           <figure class="spotlight-media" id="spotlight-media"></figure>
           <div class="spotlight-detail">
-            <p class="eyebrow">PROJECT FILE</p>
-            <h3 id="spotlight-title"></h3>
+            <p class="eyebrow spotlight-eyebrow">&#9632; PILIHAN PROYEK</p>
+            <div class="spotlight-index-row">
+              <h3 id="spotlight-title"></h3>
+              <span class="spotlight-index" id="spotlight-index">01 / 04</span>
+            </div>
             <p class="spotlight-description" id="spotlight-description"></p>
             <div class="project-tags" id="spotlight-tags"></div>
             <a
@@ -186,7 +189,9 @@
                   data-spotlight-step="-1"
                   aria-label="Proyek sebelumnya"
                 >
-                  &#8592;
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <polyline points="10,2 4,8 10,14" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/>
+                  </svg>
                 </button>
                 <button
                   class="icon-button"
@@ -194,7 +199,9 @@
                   data-spotlight-step="1"
                   aria-label="Proyek berikutnya"
                 >
-                  &#8594;
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <polyline points="6,2 12,8 6,14" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/>
+                  </svg>
                 </button>
               </div>
             </div>
@@ -272,7 +279,7 @@
 
     <script src="data.js"></script>
     <script src="supabase-config.js"></script>
-    <script src="app.js?v=20261120-centered-hero"></script>
+    <script src="app.js?v=20261120-showcase-navbar"></script>
     <script src="script.js"></script>
   </body>
 </html>
