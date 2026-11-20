@@ -100,6 +100,17 @@ Jangan mengarang informasi yang belum diberikan. Untuk pengalaman magang, minta 
 
 ## Catatan Perubahan
 
+### 2026-11-20 - Redesign Hero Carousel (Terminal HUD, Pixel Aesthetic & Centering)
+
+- Hero Card Centering: Memperbaiki posisi hero terminal & single card yang sebelumnya condong ke kanan (`right: 8%`) menjadi 100% simetris di tengah (`left: 50%; transform: translateX(-50%)`) sehingga jarak ke tombol panah kiri dan kanan persis sama.
+- Pixel Corner Brackets: Menyinkronkan 4 corner brackets `[ ]` dalam wrapper `.pixel-frame-corners` yang memeluk tepat di sekeliling kartu dengan jarak presisi.
+- Hero Action Buttons: Merombak tombol "Lihat proyek" dan "Hubungi saya" mengikuti tema cyber-pixel tombol Detail (`.pixel-card-cta`), sudut tajam (tanpa rounded), tipografi monospace, efek laser shimmer sweep saat hover, tombol primary berlatar mint neon dengan forward arrow `→`, dan tombol secondary berlatar amber gold neon dengan diagonal arrow `↗`.
+- Slide 1 (Profil): Mengganti foto lingkaran besar dengan panel "Terminal Bio / System HUD" bergaya hardware/embedded system (`SYS.CORE // PROFILE.DAT`). Dilengkapi status online dengan pulsing pixel dot, avatar berbingkai aksen sudut pixel, identitas & fokus, grid metrik pencapaian (6+ proyek, 10+ prestasi, 16+ skill), active stack badges (ESP32, Arduino, MQTT, Robotics, MicroPython, C/C++), dan command line terminal dengan blinking pixel cursor `_`.
+- Slide 2 (Proyek) & Slide 3 (Prestasi): Mengubah format dua kartu vertikal yang terjepit menjadi Single Card yang luas (horizontal layout 16:9). Dilengkapi sub-pills interaktif `[ 01 ]` `[ 02 ]` untuk beralih antar proyek/prestasi terbaru, auto-switch di paruh durasi slide, tag overlay, dan tombol CTA langsung.
+- Pixel Arrow & Frame Brackets: Mengganti tombol panah navigasi menjadi tombol persegi pixel art ber-SVG step chevron, serta menambahkan 4 corner brackets `[ ]` pixel style pada frame carousel.
+- Animasi Pixel: Menambahkan animasi transisi `pixel-dissolve-in`, scanline berketebalan 2px dengan glow, dan blinking pixel cursor pada label kategori dan status bar.
+
+
 ### 2026-11-18
 
 - Mengubah hero menjadi slideshow profil (9 detik), dua proyek terbaru (6 detik), dan dua prestasi terbaru (7 detik), dengan panah kiri/kanan, indikator kategori, swipe, pause hover/fokus, reduced-motion, serta scan line yang sinkron dengan timer.

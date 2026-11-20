@@ -63,10 +63,19 @@
               bekerja di dunia nyata.
             </p>
             <div class="hero-actions">
-              <a href="projects.html" class="btn btn-primary">Lihat proyek</a>
-              <a href="https://wa.me/6285895625857" class="btn btn-secondary"
-                >Hubungi saya <span aria-hidden="true">&#8599;</span></a
+              <a href="projects.html" class="hero-btn hero-btn-primary">
+                <span>Lihat proyek</span>
+                <span class="hero-btn-arrow" aria-hidden="true">&#8594;</span>
+              </a>
+              <a
+                href="https://wa.me/6285895625857"
+                class="hero-btn hero-btn-secondary"
+                target="_blank"
+                rel="noreferrer"
               >
+                <span>Hubungi saya</span>
+                <span class="hero-btn-arrow" aria-hidden="true">&#8599;</span>
+              </a>
             </div>
             <a class="hero-scroll" href="#project-featured"
               ><span>JELAJAHI KARYA</span
@@ -84,6 +93,12 @@
                 id="hero-carousel-frame"
                 aria-label="Sorotan profil, proyek, dan prestasi"
               >
+                <div class="pixel-frame-corners" aria-hidden="true">
+                  <span class="pixel-frame-corner pfc-tl"></span>
+                  <span class="pixel-frame-corner pfc-tr"></span>
+                  <span class="pixel-frame-corner pfc-bl"></span>
+                  <span class="pixel-frame-corner pfc-br"></span>
+                </div>
                 <div class="hero-carousel-slide" id="hero-carousel-slide"></div>
                 <span
                   class="hero-scanline"
@@ -96,7 +111,9 @@
                   data-hero-step="-1"
                   aria-label="Tampilkan sorotan sebelumnya"
                 >
-                  &#8592;
+                  <svg class="pixel-arrow-svg" width="10" height="10" viewBox="0 0 10 10" fill="currentColor" shape-rendering="crispEdges" aria-hidden="true">
+                    <path d="M6 0h2v2H6V0zm-2 2h2v2H4V2zm-2 2h2v2H2V4zm2 2h2v2H4V6zm2 2h2v2H6V8z"/>
+                  </svg>
                 </button>
                 <button
                   class="hero-carousel-arrow hero-carousel-next"
@@ -104,7 +121,9 @@
                   data-hero-step="1"
                   aria-label="Tampilkan sorotan berikutnya"
                 >
-                  &#8594;
+                  <svg class="pixel-arrow-svg" width="10" height="10" viewBox="0 0 10 10" fill="currentColor" shape-rendering="crispEdges" aria-hidden="true">
+                    <path d="M2 0h2v2H2V0zm2 2h2v2H4V2zm2 2h2v2H6V4zm-2 2h2v2H4V6zm-2 2h2v2H2V8z"/>
+                  </svg>
                 </button>
               </div>
               <div class="hero-carousel-status">
@@ -253,7 +272,7 @@
 
     <script src="data.js"></script>
     <script src="supabase-config.js"></script>
-    <script src="app.js?v=20261118-year-sort"></script>
+    <script src="app.js?v=20261120-centered-hero"></script>
     <script src="script.js"></script>
   </body>
 </html>

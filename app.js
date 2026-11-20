@@ -109,70 +109,216 @@ function renderHeroCarousel() {
     achievementsData,
     "achievements",
   ).slice(0, 2);
+  const totalSkills =
+    skillsData.reduce(
+      (acc, cat) => acc + (cat.items ? cat.items.length : 0),
+      0,
+    ) || 16;
+  const totalProjects = projectsData.length || 6;
+  const totalAchievements = achievementsData.length || 10;
+
+  let activeIndex = 0;
+  let projectSubIndex = 0;
+  let achievementSubIndex = 0;
+  let timerId;
+  let subTimerId;
+  let isPaused = false;
+  const reducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+
+  function renderProfileSlide() {
+    return `
+      <article class="hero-slide hero-terminal-slide" aria-roledescription="slide" aria-label="Profil Diocta">
+        <div class="hero-terminal-panel">
+          <div class="terminal-bar">
+            <div class="terminal-dots" aria-hidden="true">
+              <span class="t-dot t-red"></span>
+              <span class="t-dot t-yellow"></span>
+              <span class="t-dot t-green"></span>
+            </div>
+            <div class="terminal-title">
+              <span class="pixel-sys-title">SYS.CORE // PROFILE.DAT</span>
+            </div>
+            <div class="terminal-status">
+              <span class="pixel-status-pulse" aria-hidden="true"></span>
+              <span class="pixel-status-text">ONLINE</span>
+            </div>
+          </div>
+
+          <div class="terminal-body">
+            <div class="terminal-identity">
+              <div class="terminal-avatar-frame">
+                <img src="assets/profil.png" alt="Diocta Brian Cesario" class="terminal-avatar" />
+                <span class="avatar-corner ac-tl" aria-hidden="true"></span>
+                <span class="avatar-corner ac-tr" aria-hidden="true"></span>
+                <span class="avatar-corner ac-bl" aria-hidden="true"></span>
+                <span class="avatar-corner ac-br" aria-hidden="true"></span>
+              </div>
+              <div class="terminal-id-text">
+                <span class="terminal-badge">MAKER / EMBEDDED DEV</span>
+                <h2 class="terminal-name">Diocta Brian Cesario</h2>
+                <p class="terminal-sub">SMK Telkom Sidoarjo &bull; SIJA</p>
+                <div class="terminal-spec">
+                  <span class="spec-label">FOCUS:</span>
+                  <span class="spec-value">IoT &bull; Robotics &bull; Embedded AI</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="terminal-stats-grid">
+              <div class="terminal-stat-box">
+                <span class="stat-num">${totalProjects.toString().padStart(2, "0")}+</span>
+                <span class="stat-lbl">PROYEK IOT</span>
+              </div>
+              <div class="terminal-stat-box">
+                <span class="stat-num">${totalAchievements.toString().padStart(2, "0")}+</span>
+                <span class="stat-lbl">PRESTASI &amp; SERTIFIKASI</span>
+              </div>
+              <div class="terminal-stat-box">
+                <span class="stat-num">${totalSkills}+</span>
+                <span class="stat-lbl">KEAHLIAN TEKNIS</span>
+              </div>
+            </div>
+
+            <div class="terminal-tags-row">
+              <span class="pixel-chip active">ESP32</span>
+              <span class="pixel-chip">Arduino</span>
+              <span class="pixel-chip">MQTT</span>
+              <span class="pixel-chip">Robotics</span>
+              <span class="pixel-chip">Sensors</span>
+              <span class="pixel-chip">MicroPython</span>
+              <span class="pixel-chip">C/C++</span>
+            </div>
+
+            <div class="terminal-cmd-line">
+              <span class="cmd-prompt">diocta@iot-lab:~$</span>
+              <span class="cmd-text">engineering smart prototypes</span>
+              <span class="pixel-cursor" aria-hidden="true">_</span>
+            </div>
+          </div>
+        </div>
+      </article>
+    `;
+  }
+
+  function renderProjectSlide(subIdx) {
+    const project = latestProjects[subIdx] || latestProjects[0];
+    if (!project) return "";
+    const year = getContentYear(project, "projects") || project.year || 2026;
+    const tags = (project.tags || []).slice(0, 3);
+
+    return `
+      <article class="hero-slide hero-single-slide hero-project-slide" aria-roledescription="slide" aria-label="Proyek terbaru">
+        <div class="hero-single-card">
+          <div class="single-card-header">
+            <div class="card-meta-left">
+              <span class="pixel-badge project-badge">PROYEK TERBARU</span>
+              <span class="card-year-tag">${escapeHTML(year)}</span>
+            </div>
+            <div class="card-sub-pills" role="tablist" aria-label="Pilih proyek">
+              ${latestProjects
+                .map(
+                  (p, idx) => `
+                  <button type="button" class="sub-pill ${idx === subIdx ? "active" : ""}" data-hero-sub="projects:${idx}" aria-label="Lihat proyek ${idx + 1}" aria-pressed="${idx === subIdx}">
+                    <span>0${idx + 1}</span>
+                  </button>
+                `,
+                )
+                .join("")}
+            </div>
+          </div>
+
+          <a href="project-detail.html?id=${encodeURIComponent(project.id)}" class="single-card-media-wrap">
+            <img src="${escapeHTML(project.image)}" alt="${escapeHTML(project.title)}" class="single-card-img" />
+            <div class="media-overlay-tags">
+              ${tags.map((t) => `<span class="pixel-mini-tag">${escapeHTML(t)}</span>`).join("")}
+            </div>
+            <span class="media-pixel-scan" aria-hidden="true"></span>
+          </a>
+
+          <div class="single-card-footer">
+            <div class="single-card-info">
+              <h3 class="single-card-title">${escapeHTML(project.title)}</h3>
+              <p class="single-card-desc">${escapeHTML(project.shortDesc)}</p>
+            </div>
+            <a href="project-detail.html?id=${encodeURIComponent(project.id)}" class="pixel-card-cta">
+              <span>Detail</span>
+              <span class="cta-arrow" aria-hidden="true">&nearr;</span>
+            </a>
+          </div>
+        </div>
+      </article>
+    `;
+  }
+
+  function renderAchievementSlide(subIdx) {
+    const achievement = latestAchievements[subIdx] || latestAchievements[0];
+    if (!achievement) return "";
+    const year = achievement.year || 2025;
+
+    return `
+      <article class="hero-slide hero-single-slide hero-achievement-slide" aria-roledescription="slide" aria-label="Prestasi terbaru">
+        <div class="hero-single-card achievement-accent">
+          <div class="single-card-header">
+            <div class="card-meta-left">
+              <span class="pixel-badge achievement-badge">PRESTASI // SERTIFIKASI</span>
+              <span class="card-year-tag gold-tag">${escapeHTML(year)}</span>
+            </div>
+            <div class="card-sub-pills" role="tablist" aria-label="Pilih prestasi">
+              ${latestAchievements
+                .map(
+                  (a, idx) => `
+                  <button type="button" class="sub-pill gold ${idx === subIdx ? "active" : ""}" data-hero-sub="achievements:${idx}" aria-label="Lihat prestasi ${idx + 1}" aria-pressed="${idx === subIdx}">
+                    <span>0${idx + 1}</span>
+                  </button>
+                `,
+                )
+                .join("")}
+            </div>
+          </div>
+
+          <div class="single-card-media-wrap achievement-media">
+            <img src="${escapeHTML(achievement.image)}" alt="${escapeHTML(achievement.title)}" class="single-card-img contain-fit" />
+            <span class="media-pixel-scan" aria-hidden="true"></span>
+          </div>
+
+          <div class="single-card-footer">
+            <div class="single-card-info">
+              <span class="single-card-organizer">${escapeHTML(achievement.organizer)}</span>
+              <h3 class="single-card-title">${escapeHTML(achievement.title)}</h3>
+              <p class="single-card-desc">${escapeHTML(achievement.shortDesc)}</p>
+            </div>
+            <a href="achievements.html" class="pixel-card-cta gold-cta">
+              <span>Prestasi</span>
+              <span class="cta-arrow" aria-hidden="true">&nearr;</span>
+            </a>
+          </div>
+        </div>
+      </article>
+    `;
+  }
+
   const slides = [
     {
       key: "profile",
       label: "PROFIL",
       duration: 9000,
-      content: `
-        <article class="hero-slide hero-profile-slide" aria-roledescription="slide" aria-label="Profil Diocta">
-          <figure class="hero-visual hero-profile-visual">
-            <img src="assets/profil.png" alt="Foto profil Diocta Brian Cesario" />
-            <figcaption><span>PROFILE / ABOUT</span><strong>IoT &amp; Embedded Systems</strong></figcaption>
-          </figure>
-          <div class="hero-profile-card">
-            <img src="assets/profil.png" alt="" />
-            <div><span>Student at SMK Telkom Sidoarjo</span><strong>Diocta Brian Cesario</strong></div>
-          </div>
-        </article>
-      `,
+      render: () => renderProfileSlide(),
     },
     {
       key: "projects",
       label: "PROYEK TERBARU",
-      duration: 6000,
-      content: `
-        <article class="hero-slide hero-pair-slide" aria-roledescription="slide" aria-label="Dua proyek terbaru">
-          ${latestProjects
-            .map(
-              (project, index) => `
-                <figure class="hero-visual hero-pair-card">
-                  <img src="${escapeHTML(project.image)}" alt="${escapeHTML(project.title)}" />
-                  <figcaption><span>PROYEK / 0${index + 1}</span><strong>${escapeHTML(project.title)}</strong></figcaption>
-                </figure>
-              `,
-            )
-            .join("")}
-        </article>
-      `,
+      duration: 7000,
+      render: () => renderProjectSlide(projectSubIndex),
     },
     {
       key: "achievements",
       label: "PRESTASI TERBARU",
       duration: 7000,
-      content: `
-        <article class="hero-slide hero-pair-slide hero-achievement-slide" aria-roledescription="slide" aria-label="Dua prestasi terbaru">
-          ${latestAchievements
-            .map(
-              (achievement, index) => `
-                <figure class="hero-visual hero-pair-card">
-                  <img src="${escapeHTML(achievement.image)}" alt="${escapeHTML(achievement.title)}" />
-                  <figcaption><span>PRESTASI / ${escapeHTML(achievement.year)}</span><strong>${escapeHTML(achievement.title)}</strong></figcaption>
-                </figure>
-              `,
-            )
-            .join("")}
-        </article>
-      `,
+      render: () => renderAchievementSlide(achievementSubIndex),
     },
   ];
-
-  let activeIndex = 0;
-  let timerId;
-  let isPaused = false;
-  const reducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)",
-  ).matches;
 
   picker.innerHTML = slides
     .map(
@@ -183,7 +329,26 @@ function renderHeroCarousel() {
 
   const scheduleNext = () => {
     window.clearTimeout(timerId);
+    window.clearTimeout(subTimerId);
     if (reducedMotion || isPaused) return;
+
+    if (activeIndex === 1 && latestProjects.length > 1) {
+      subTimerId = window.setTimeout(() => {
+        if (reducedMotion || isPaused || activeIndex !== 1) return;
+        projectSubIndex = (projectSubIndex + 1) % latestProjects.length;
+        slideHost.innerHTML = renderProjectSlide(projectSubIndex);
+      }, slides[1].duration / 2);
+    }
+
+    if (activeIndex === 2 && latestAchievements.length > 1) {
+      subTimerId = window.setTimeout(() => {
+        if (reducedMotion || isPaused || activeIndex !== 2) return;
+        achievementSubIndex =
+          (achievementSubIndex + 1) % latestAchievements.length;
+        slideHost.innerHTML = renderAchievementSlide(achievementSubIndex);
+      }, slides[2].duration / 2);
+    }
+
     timerId = window.setTimeout(
       () => showSlide(activeIndex + 1),
       slides[activeIndex].duration,
@@ -191,12 +356,13 @@ function renderHeroCarousel() {
   };
 
   function showSlide(nextIndex) {
+    window.clearTimeout(subTimerId);
     activeIndex = (nextIndex + slides.length) % slides.length;
     const slide = slides[activeIndex];
 
     slideHost.classList.remove("is-entering");
-    slideHost.innerHTML = slide.content;
-    label.textContent = slide.label;
+    slideHost.innerHTML = slide.render();
+    label.innerHTML = `${escapeHTML(slide.label)} <span class="pixel-cursor" aria-hidden="true">_</span>`;
     picker.querySelectorAll("[data-hero-index]").forEach((button, index) => {
       button.setAttribute("aria-pressed", String(index === activeIndex));
     });
@@ -213,6 +379,7 @@ function renderHeroCarousel() {
   const pause = () => {
     isPaused = true;
     window.clearTimeout(timerId);
+    window.clearTimeout(subTimerId);
     scanline.classList.add("is-paused");
   };
 
@@ -228,6 +395,22 @@ function renderHeroCarousel() {
   picker.addEventListener("click", (event) => {
     const button = event.target.closest("[data-hero-index]");
     if (button) showSlide(Number(button.dataset.heroIndex));
+  });
+
+  slideHost.addEventListener("click", (event) => {
+    const subBtn = event.target.closest("[data-hero-sub]");
+    if (!subBtn) return;
+    const [kind, idxStr] = subBtn.dataset.heroSub.split(":");
+    const subIdx = Number(idxStr);
+    if (kind === "projects") {
+      projectSubIndex = subIdx;
+      window.clearTimeout(subTimerId);
+      slideHost.innerHTML = renderProjectSlide(projectSubIndex);
+    } else if (kind === "achievements") {
+      achievementSubIndex = subIdx;
+      window.clearTimeout(subTimerId);
+      slideHost.innerHTML = renderAchievementSlide(achievementSubIndex);
+    }
   });
 
   carousel.querySelectorAll("[data-hero-step]").forEach((button) => {
